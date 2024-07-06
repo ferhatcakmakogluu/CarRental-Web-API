@@ -1,4 +1,14 @@
-.vs/
+**/.vs/
 *.vsidx/
-bin/
-obj/
+**/bin/
+**/obj/
+
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+*.log
+*.tmp
+*.bak
