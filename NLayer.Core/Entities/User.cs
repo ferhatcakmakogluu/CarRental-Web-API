@@ -13,10 +13,9 @@ namespace NLayer.Core.Entities
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Adress { get; set; }
-        public string Photo {  get; set; }
+        public string? Photo {  get; set; }
 
-        public int AccountId { get; set; }
-        public Account Account { get; set; }
+        
         
     }
 }
