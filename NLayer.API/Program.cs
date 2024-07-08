@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using NLayer.API.Modules;
 using NLayer.Repository;
+using NLayer.Service.Mapping;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,9 @@ builder.Services.AddControllers();
 //Autofac implement
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
+
+//AutoMapper dahil et
+builder.Services.AddAutoMapper(typeof(MapProfile));
 
 //veri tabaný yolunu(sqlconnection ile) ve contexi tanýmladýk
 builder.Services.AddDbContext<AppDbContext>(x =>
