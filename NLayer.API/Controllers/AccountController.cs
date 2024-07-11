@@ -36,6 +36,14 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<AccountDto>.Success(200, accountDto));
         }
 
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetAccountWithUserById(int id)
+        {
+            var accountWithUser = await _accountService.GetAccountWithUserById(id);
+            //var accountWithUserDto = _mapper.Map<AccountDto>(accountWithUser);
+            return CreateActionResult(CustomResponseDto<AccountWithUserDto>.Success(200, accountWithUser));
+        }
+
         [HttpPost]
         public async Task<IActionResult> SaveAccount(AccountDto account)
         {

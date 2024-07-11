@@ -9,5 +9,7 @@ namespace NLayer.Core.Repositories
 {
     public interface IAccountRepository : IGenericRepository<Account>
     {
+        Task<Account> GetAccountWithUserById(int id);
     }
+
 }

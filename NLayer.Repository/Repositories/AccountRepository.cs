@@ -1,4 +1,5 @@
-﻿using NLayer.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using NLayer.Core.Entities;
 using NLayer.Core.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,11 @@ namespace NLayer.Repository.Repositories
     {
         public AccountRepository(AppDbContext context) : base(context)
         {
+        }
+
+        public async Task<Account> GetAccountWithUserById(int id)
+        {
+            return await _context.Accounts.Include(x => x.User).Where(x => x.Id == id).FirstOrDefaultAsync();
         }
     }
 }
