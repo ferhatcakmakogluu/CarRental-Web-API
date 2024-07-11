@@ -1,4 +1,5 @@
-﻿using NLayer.Core.Entities;
+﻿using NLayer.Core.DTOs;
+using NLayer.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace NLayer.Core.Services
 {
     public interface IUserService : IService<User>
     {
+        Task<List<UserWithCarsDto>> GetUserWithCars();
+        Task<UserWithCarsDto> GetUserWithCarsById(int id);
     }
 }

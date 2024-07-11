@@ -16,6 +16,6 @@ namespace NLayer.Core.Entities
         public string? Photo {  get; set; }
 
         
-        
+        public List<Car> Cars { get; set; }
     }
 }

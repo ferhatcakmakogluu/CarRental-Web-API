@@ -36,6 +36,20 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<UserDto>.Success(200, userDto));
         }
 
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetUserWithCars()
+        {
+            var userWithCars = await _userService.GetUserWithCars();
+            return CreateActionResult(CustomResponseDto<List<UserWithCarsDto>>.Success(200, userWithCars));
+        }
+
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetUserWithCarById(int id)
+        {
+            var userWithCar = await _userService.GetUserWithCarsById(id);
+            return CreateActionResult(CustomResponseDto<UserWithCarsDto>.Success(200, userWithCar));
+        }
+
         [HttpPost]
         public async Task<IActionResult> SaveUser(UserDto userDto)
         {

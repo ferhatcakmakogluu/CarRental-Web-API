@@ -9,5 +9,7 @@ namespace NLayer.Core.Repositories
 {
     public interface IUserRepository : IGenericRepository<User>
     {
+        Task<List<User>> GetUserWithCars();
+        Task<User> GetUserWithCarsById(int id);
     }
 }
