@@ -21,7 +21,7 @@ namespace NLayer.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllCarFeature()
+        public async Task<IActionResult> GetAllCarFeatures()
         {
             var carFeatures = await _carFeatureService.GetAllAsync();
             var carFeaturesDto = _mapper.Map<List<CarFeatureDto>>(carFeatures);

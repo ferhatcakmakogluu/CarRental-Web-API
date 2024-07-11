@@ -10,16 +10,18 @@ namespace NLayer.API.Controllers
     public class UserController : CustomBaseController
     {
         private readonly IUserService _userService;
+        private readonly IAccountService _accountService;
         private readonly IMapper _mapper;
 
-        public UserController(IUserService userService, IMapper mapper)
+        public UserController(IUserService userService, IMapper mapper, IAccountService accountService)
         {
             _userService = userService;
             _mapper = mapper;
+            _accountService = accountService;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllUser()
+        public async Task<IActionResult> GetAllUsers()
         {
             var users = await _userService.GetAllAsync();
             var usersDto = _mapper.Map<List<UserDto>>(users);
@@ -53,6 +55,13 @@ namespace NLayer.API.Controllers
         {
             var user = await _userService.GetByIdAsync(id);
             await _userService.RemoveAsync(user);
+
+            var account = _accountService.Where(x=>x.UserId == id).FirstOrDefault();
+            if (account != null)
+            {
+                //kisiye bagli hesapta silinir
+                await _accountService.RemoveAsync(account);
+            }
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
     }

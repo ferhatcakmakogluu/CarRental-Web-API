@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NLayer.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+82520461140c736f5004b691a0f063e2d475f998")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f8b5187e30896271ca38809d81a62d49573a501")]
 [assembly: System.Reflection.AssemblyProductAttribute("NLayer.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NLayer.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
