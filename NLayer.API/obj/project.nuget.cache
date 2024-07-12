@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cjB1zDnZwOs=",
+  "dgSpecHash": "11BVdssOxr8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.API\\NLayer.API.csproj",
+  "projectFilePath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.API\\NLayer.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\autofac\\8.0.0\\autofac.8.0.0.nupkg.sha512",
     "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\autofac.extensions.dependencyinjection\\9.0.0\\autofac.extensions.dependencyinjection.9.0.0.nupkg.sha512",
@@ -10,6 +10,9 @@
     "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",

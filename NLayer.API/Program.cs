@@ -1,16 +1,19 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using NLayer.API.Modules;
 using NLayer.Repository;
 using NLayer.Service.Mapping;
+using NLayer.Service.Validation;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+.AddFluentValidation(x=>x.RegisterValidatorsFromAssemblyContaining<UserDtoValidator>()); //FluentValidation eklendi
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
 

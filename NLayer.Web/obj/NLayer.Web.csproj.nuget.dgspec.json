@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Web\\NLayer.Web.csproj": {}
+    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Web\\NLayer.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Core\\NLayer.Core.csproj": {
+    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Core\\NLayer.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Core\\NLayer.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Core\\NLayer.Core.csproj",
         "projectName": "NLayer.Core",
-        "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Core\\NLayer.Core.csproj",
+        "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Core\\NLayer.Core.csproj",
         "packagesPath": "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Core\\obj\\",
+        "outputPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ferhat Çakmakoğlu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -65,14 +65,14 @@
         }
       }
     },
-    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Repository\\NLayer.Repository.csproj": {
+    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Repository\\NLayer.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Repository\\NLayer.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Repository\\NLayer.Repository.csproj",
         "projectName": "NLayer.Repository",
-        "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Repository\\NLayer.Repository.csproj",
+        "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Repository\\NLayer.Repository.csproj",
         "packagesPath": "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Repository\\obj\\",
+        "outputPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ferhat Çakmakoğlu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -90,8 +90,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Core\\NLayer.Core.csproj": {
-                "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Core\\NLayer.Core.csproj"
+              "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Core\\NLayer.Core.csproj": {
+                "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Core\\NLayer.Core.csproj"
               }
             }
           }
@@ -146,14 +146,14 @@
         }
       }
     },
-    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Service\\NLayer.Service.csproj": {
+    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Service\\NLayer.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Service\\NLayer.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Service\\NLayer.Service.csproj",
         "projectName": "NLayer.Service",
-        "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Service\\NLayer.Service.csproj",
+        "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Service\\NLayer.Service.csproj",
         "packagesPath": "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Service\\obj\\",
+        "outputPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ferhat Çakmakoğlu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -171,8 +171,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Repository\\NLayer.Repository.csproj": {
-                "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Repository\\NLayer.Repository.csproj"
+              "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Repository\\NLayer.Repository.csproj": {
+                "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Repository\\NLayer.Repository.csproj"
               }
             }
           }
@@ -195,6 +195,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
             }
           },
           "imports": [
@@ -217,14 +221,14 @@
         }
       }
     },
-    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Web\\NLayer.Web.csproj": {
+    "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Web\\NLayer.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Web\\NLayer.Web.csproj",
+        "projectUniqueName": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Web\\NLayer.Web.csproj",
         "projectName": "NLayer.Web",
-        "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Web\\NLayer.Web.csproj",
+        "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Web\\NLayer.Web.csproj",
         "packagesPath": "C:\\Users\\Ferhat Çakmakoğlu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Web\\obj\\",
+        "outputPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ferhat Çakmakoğlu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -242,8 +246,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Service\\NLayer.Service.csproj": {
-                "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRentalApp\\NLayer.Service\\NLayer.Service.csproj"
+              "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Service\\NLayer.Service.csproj": {
+                "projectPath": "C:\\Users\\Ferhat Çakmakoğlu\\source\\repos\\CarRental-Web-API\\NLayer.Service\\NLayer.Service.csproj"
               }
             }
           }
