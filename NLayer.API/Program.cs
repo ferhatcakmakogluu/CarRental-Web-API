@@ -1,7 +1,9 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NLayer.API.Filters;
 using NLayer.API.Modules;
 using NLayer.Repository;
 using NLayer.Service.Mapping;
@@ -12,10 +14,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers()
+builder.Services.AddControllers(
+    options => options.Filters.Add(new ValidateFilterAttribute()) //Filter'i ekledik
+)
 .AddFluentValidation(x=>x.RegisterValidatorsFromAssemblyContaining<UserDtoValidator>()); //FluentValidation eklendi
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
+
+//Sistemin default filterini kapat
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
 
 //Autofac implement
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
