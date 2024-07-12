@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NLayer.API.Filters;
 using NLayer.Core.DTOs;
 using NLayer.Core.Entities;
 using NLayer.Core.Services;
@@ -28,6 +29,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<List<AccountDto>>.Success(200, accountsDto));
         }
 
+    [ServiceFilter(typeof(NotFoundFilter<Account>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAccountWithId(int id)
         {
@@ -36,6 +38,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<AccountDto>.Success(200, accountDto));
         }
 
+    [ServiceFilter(typeof(NotFoundFilter<Account>))]
         [HttpGet("[action]/{id}")]
         public async Task<IActionResult> GetAccountWithUserById(int id)
         {
@@ -58,6 +61,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<AccountDto>.Success(204, account));
         }
 
+    [ServiceFilter(typeof(NotFoundFilter<Account>))]
         [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveAccount(int id)
         {

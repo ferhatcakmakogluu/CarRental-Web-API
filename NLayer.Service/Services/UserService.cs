@@ -4,6 +4,7 @@ using NLayer.Core.Entities;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWork;
+using NLayer.Service.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,10 @@ namespace NLayer.Service.Services
         public async Task<List<UserWithCarsDto>> GetUserWithCars()
         {
             var userWithCars = await _userRepository.GetUserWithCars();
+            if (userWithCars == null)
+            {
+                throw new NotFoundException("Users not found!");
+            }
             var userWithCarsDto = _mapper.Map<List<UserWithCarsDto>>(userWithCars);
             return userWithCarsDto;
         }
@@ -33,6 +38,10 @@ namespace NLayer.Service.Services
         public async Task<UserWithCarsDto> GetUserWithCarsById(int id)
         {
             var userWithCar = await _userRepository.GetUserWithCarsById(id);
+            if (userWithCar == null)
+            {
+                throw new NotFoundException($"User ({id}) not found!");
+            }
             var userWithCarDto = _mapper.Map<UserWithCarsDto>(userWithCar);
             return userWithCarDto;
         }

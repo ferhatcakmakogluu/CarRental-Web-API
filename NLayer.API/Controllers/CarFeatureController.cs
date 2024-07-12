@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NLayer.API.Filters;
 using NLayer.Core.DTOs;
 using NLayer.Core.Entities;
 using NLayer.Core.Services;
+using NLayer.Service.Exceptions;
 
 namespace NLayer.API.Controllers
 {
@@ -28,6 +30,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<List<CarFeatureDto>>.Success(200, carFeaturesDto));
         }
 
+    [ServiceFilter(typeof(NotFoundFilter<CarFeature>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCarFeaturesById(int id)
         {
@@ -42,11 +45,12 @@ namespace NLayer.API.Controllers
             //araba var mı kontrol et
             var car = await _carService.GetByIdAsync(carFeatureDto.CarId);
 
-            if (car == null)
+            /*if (car == null)
             {
+                throw new NotFoundException($"{typeof(Car).Name} ({carFeatureDto.CarId}) not found!");
                 return CreateActionResult(CustomResponseDto<NoContentDto>.Fail(404, "Car Not Found!"));
             }
-
+            */
             await _carFeatureService.AddAsync(_mapper.Map<CarFeature>(carFeatureDto));
             return CreateActionResult(CustomResponseDto<CarFeatureDto>.Success(200, carFeatureDto));
         }
@@ -58,6 +62,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<CarFeatureDto>.Success(204,carFeatureDto));
         }
 
+    [ServiceFilter(typeof(NotFoundFilter<CarFeature>))]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCarFeature(int id)
         {

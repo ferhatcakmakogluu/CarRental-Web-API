@@ -4,6 +4,7 @@ using NLayer.Core.Entities;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWork;
+using NLayer.Service.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,10 @@ namespace NLayer.Service.Services
         public async Task<AccountWithUserDto> GetAccountWithUserById(int id)
         {
             var accountWithUser = await _accountRepository.GetAccountWithUserById(id);
+            if (accountWithUser == null)
+            {
+                throw new NotFoundException($"Account ({id}) not found!");
+            }
             var accountWithUserDto = _mapper.Map<AccountWithUserDto>(accountWithUser);
             return accountWithUserDto;
         }

@@ -4,6 +4,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NLayer.API.Filters;
+using NLayer.API.Middlewares;
 using NLayer.API.Modules;
 using NLayer.Repository;
 using NLayer.Service.Mapping;
@@ -26,6 +27,9 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;
 });
+
+
+builder.Services.AddScoped(typeof(NotFoundFilter<>));
 
 //Autofac implement
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
@@ -57,6 +61,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+
+//Kendi middleware i kullanmamýz icin
+app.UserCustomEsception();
 
 app.UseAuthorization();
 

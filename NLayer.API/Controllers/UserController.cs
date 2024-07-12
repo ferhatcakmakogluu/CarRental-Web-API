@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NLayer.API.Filters;
 using NLayer.Core.DTOs;
 using NLayer.Core.Entities;
 using NLayer.Core.Services;
@@ -28,6 +29,8 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<List<UserDto>>.Success(200, usersDto));
         }
 
+    //istek controller icine girmeden filtrelenir
+    [ServiceFilter(typeof(NotFoundFilter<User>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUserWithId(int id)
         {
@@ -43,6 +46,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<List<UserWithCarsDto>>.Success(200, userWithCars));
         }
 
+    [ServiceFilter(typeof(NotFoundFilter<User>))]
         [HttpGet("[action]/{id}")]
         public async Task<IActionResult> GetUserWithCarById(int id)
         {
@@ -64,6 +68,7 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<UserDto>.Success(204, userDto));
         }
 
+    [ServiceFilter(typeof(NotFoundFilter<User>))]
         [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveUser(int id)
         {
