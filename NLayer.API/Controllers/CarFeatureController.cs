@@ -39,18 +39,29 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<CarFeatureDto>.Success(200, carFeatureDto));
         }
 
+    [ServiceFilter(typeof(NotFoundFilter<CarFeature>))]
+        [HttpGet("[action]")]
+        public async Task<IActionResult> GetCarFeatureWithCar()
+        {
+            var carFeatureWithCarDto = await _carFeatureService.GetCarFeatureWithCar();
+            return CreateActionResult(CustomResponseDto<List<CarFeatureWithCarDto>>.Success(200, carFeatureWithCarDto));
+        }
+
+    [ServiceFilter(typeof (NotFoundFilter<CarFeature>))]
+        [HttpGet("[action]/{id}")]
+        public async Task<IActionResult> GetCarFeatureWithCarById(int id)
+        {
+            var carFeatureWithCarDto = await _carFeatureService.GetCarFeatureWithCarById(id);
+            return CreateActionResult(CustomResponseDto<CarFeatureWithCarDto>.Success(200, carFeatureWithCarDto));
+        }
+
         [HttpPost]
         public async Task<IActionResult> SaveCarFeature(CarFeatureDto carFeatureDto)
         {
             //araba var mı kontrol et
+            //eger arac yoksa otomaitk hata fırlatır
             var car = await _carService.GetByIdAsync(carFeatureDto.CarId);
 
-            /*if (car == null)
-            {
-                throw new NotFoundException($"{typeof(Car).Name} ({carFeatureDto.CarId}) not found!");
-                return CreateActionResult(CustomResponseDto<NoContentDto>.Fail(404, "Car Not Found!"));
-            }
-            */
             await _carFeatureService.AddAsync(_mapper.Map<CarFeature>(carFeatureDto));
             return CreateActionResult(CustomResponseDto<CarFeatureDto>.Success(200, carFeatureDto));
         }

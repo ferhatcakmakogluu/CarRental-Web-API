@@ -38,10 +38,11 @@ namespace NLayer.Service.Services
         public async Task<UserWithCarsDto> GetUserWithCarsById(int id)
         {
             var userWithCar = await _userRepository.GetUserWithCarsById(id);
-            if (userWithCar == null)
+            //otomatik filtreden kontrol ediyor
+            /*if (userWithCar == null)
             {
                 throw new NotFoundException($"User ({id}) not found!");
-            }
+            }*/
             var userWithCarDto = _mapper.Map<UserWithCarsDto>(userWithCar);
             return userWithCarDto;
         }

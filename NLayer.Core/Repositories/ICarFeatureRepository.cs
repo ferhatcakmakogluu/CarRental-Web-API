@@ -9,5 +9,7 @@ namespace NLayer.Core.Repositories
 {
     public interface ICarFeatureRepository : IGenericRepository<CarFeature>
     {
+        Task<List<CarFeature>> GetCarFeatureWithCar();
+        Task<CarFeature> GetCarFeatureWithCarById(int id);
     }
 }
