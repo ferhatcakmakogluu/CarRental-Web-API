@@ -25,13 +25,13 @@
                     <i class='bx bx-message-square-dots'></i>
                     <a asp-controller="Login" asp-action="Index">Giriş & Kayıt</a>
                 </div>
-                <div class="item @(ViewContext.RouteData.Values["controller"].ToString() =="About" ? "active" : "")">
+                <div class="item @(ViewContext.RouteData.Values["controller"].ToString() =="SavedCar" ? "active" : "")">
                     <i class='bx bx-briefcase'></i>
-                    <a asp-controller="About" asp-action="Index">Hakkımızda</a>
+                    <a asp-controller="SavedCar" asp-action="Index">Kaydedilen İlanlar</a>
                 </div>
                 <div class="item">
                     <i class='bx bx-bookmark-minus'></i>
-                    <a href="#">Kaydedilen İlanlar</a>
+                    <a href="#">Hakkımızda</a>
                 </div>
                 <div class="item">
                     <i class='bx bx-cog'></i>

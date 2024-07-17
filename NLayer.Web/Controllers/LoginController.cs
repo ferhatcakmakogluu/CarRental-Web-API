@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NLayer.Core.DTOs;
 
 namespace NLayer.Web.Controllers
 {
@@ -12,6 +13,12 @@ namespace NLayer.Web.Controllers
         public IActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Register(UserDto user)
+        {
+            return RedirectToAction("Index", "Home");
         }
     }
 }

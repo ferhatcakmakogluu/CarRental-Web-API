@@ -1,4 +1,6 @@
-﻿@{
+﻿@model UserDto
+
+@{
     ViewData["Title"] = "Register";
     Layout = "_Layout";
 }
@@ -30,43 +32,43 @@
                 <div class="line"></div>
             </div>
 
-            <form>
+            <form asp-asp-controller="Login" asp-action="Register" method="post">
                 <label for="name">İsim</label>
                 <div class="custome-input">
-                    <input type="text" name="name" placeholder="İsminiz" autocomplete="off">
+                    <input asp-for="Name" type="text" name="name" placeholder="İsminiz" autocomplete="off" required>
                     <i class='bx bx-face'></i>
                 </div>
-                <label for="surname">Soyisim</label>
+                <label for="LastName">Soyisim</label>
                 <div class="custome-input">
-                    <input type="text" name="surname" placeholder="Soyisminiz" autocomplete="off">
+                    <input asp-for="LastName" type="text" name="LastName" placeholder="Soyisminiz" autocomplete="off" required>
                     <i class='bx bx-face'></i>
                 </div>
-                <label for="birth">Doğum Tarihi</label>
+                <label for="BirthDate">Doğum Tarihi</label>
                 <div class="custome-input" id="dateInput">
-                    <input type="date" id="birthdateInput" name="birth" placeholder="Doğum Tarihiniz" autocomplete="off">
+                    <input asp-for="BirthDate" type="date" id="birthdateInput" name="BirthDate" placeholder="Doğum Tarihiniz" autocomplete="off" required>
                     <i class='bx bx-calendar'></i>
                 </div>
-                <label for="phone">Telefon Numarası</label>
+                <label for="PhoneNumber">Telefon Numarası</label>
                 <div class="custome-input">
-                    <input type="number" name="phone" maxlength="11" placeholder="Telefon Numaranız" autocomplete="off">
+                    <input asp-for="PhoneNumber" type="number" name="PhoneNumber" maxlength="11" placeholder="Telefon Numaranız" autocomplete="off" required>
                     <i class='bx bx-phone'></i>
                 </div>
-                <label for="email">Email</label>
+                <label for="Email">Email</label>
                 <div class="custome-input">
-                    <input type="email" name="email" placeholder="Mail Adresiniz" autocomplete="off">
+                    <input asp-for="Email" type="email" name="Email" placeholder="Mail Adresiniz" autocomplete="off" required>
                     <i class='bx bx-envelope'></i>
                 </div>
-                <label for="password">Şifre</label>
+                <label for="Password">Şifre</label>
                 <div class="custome-input">
-                    <input type="password" name="password" placeholder="Şifreniz">
+                    <input asp-for="Password" type="password" name="Password" placeholder="Şifreniz" required>
                     <i class='bx bx-lock-alt'></i>
                 </div>
-                <label for="password-again">Şifre Tekrar</label>
+                <label for="PasswordAgain">Şifre Tekrar</label>
                 <div class="custome-input">
-                    <input type="password" name="password-again" placeholder="Şifrenizi Doğrulayın">
+                    <input asp-for="PasswordAgain" type="password" name="PasswordAgain" placeholder="Şifrenizi Doğrulayın" required>
                     <i class='bx bx-lock-alt'></i>
                 </div>
-                <button class="login">Kayıt Ol</button>
+                <button type="submit" class="login">Kayıt Ol</button>
             </form>
 
         </div>

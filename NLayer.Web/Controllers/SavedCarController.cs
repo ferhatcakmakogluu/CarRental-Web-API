@@ -2,7 +2,7 @@
 
 namespace NLayer.Web.Controllers
 {
-    public class AboutController : Controller
+    public class SavedCarController : Controller
     {
         public IActionResult Index()
         {

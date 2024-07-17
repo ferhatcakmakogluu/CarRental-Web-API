@@ -13,6 +13,7 @@ namespace NLayer.Repository.EntityConfigurations
             builder.Property(x => x.Name).IsRequired().HasMaxLength(125);
             builder.Property(x => x.LastName).IsRequired().HasMaxLength(55);
             builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(11);
+            builder.Property(x => x.Email).IsRequired();
         }
     }
 }
