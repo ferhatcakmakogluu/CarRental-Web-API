@@ -287,6 +287,11 @@ body {
                             transition: all 0.3s ease;
                         }
 
+                            .container main .content .job-cards .card .card-header > i.active {
+                                color: #111;
+                            }
+
+
                             .container main .content .job-cards .card .card-header > i:hover {
                                 color: #111;
                             }
@@ -305,6 +310,8 @@ body {
                                 align-items: center;
                                 justify-content: center;
                             }
+
+                        
 
                             .container main .content .job-cards .card .card-header .job-info h5 {
                                 font-weight: 500;
@@ -467,7 +474,7 @@ body {
         position: absolute;
         z-index: 100;
         height: 100%;
-        left: -172px;
+        left: -200px;
     }
 
     .container .nav > button#menuToggle {

@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = "_Layout";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/login-page.css" asp-append-version="true" />
+</head>
+<div class="nav">
+    <button id="menuToggle"><i class='bx bx-menu'></i></button>
+</div>
+<main role="main" class="pb-3">
+    <div class="login-page">
+
+        <div class="container">
+            <h1>Hesap Oluştur! </h1>
+            <div class="social-login">
+                <button class="google">
+                    <i class='bx bxl-google'></i>
+                    Google ile Giriş
+                </button>
+                <button class="google">
+                    <i class='bx bxl-apple'></i>
+                    Apple ile Giriş
+                </button>
+            </div>
+            <div class="divider">
+                <div class="line"></div>
+                <p>Veya</p>
+                <div class="line"></div>
+            </div>
+
+            <form>
+                <label for="name">İsim</label>
+                <div class="custome-input">
+                    <input type="text" name="name" placeholder="İsminiz" autocomplete="off">
+                    <i class='bx bx-face'></i>
+                </div>
+                <label for="surname">Soyisim</label>
+                <div class="custome-input">
+                    <input type="text" name="surname" placeholder="Soyisminiz" autocomplete="off">
+                    <i class='bx bx-face'></i>
+                </div>
+                <label for="birth">Doğum Tarihi</label>
+                <div class="custome-input" id="dateInput">
+                    <input type="date" id="birthdateInput" name="birth" placeholder="Doğum Tarihiniz" autocomplete="off">
+                    <i class='bx bx-calendar'></i>
+                </div>
+                <label for="phone">Telefon Numarası</label>
+                <div class="custome-input">
+                    <input type="number" name="phone" maxlength="11" placeholder="Telefon Numaranız" autocomplete="off">
+                    <i class='bx bx-phone'></i>
+                </div>
+                <label for="email">Email</label>
+                <div class="custome-input">
+                    <input type="email" name="email" placeholder="Mail Adresiniz" autocomplete="off">
+                    <i class='bx bx-envelope'></i>
+                </div>
+                <label for="password">Şifre</label>
+                <div class="custome-input">
+                    <input type="password" name="password" placeholder="Şifreniz">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+                <label for="password-again">Şifre Tekrar</label>
+                <div class="custome-input">
+                    <input type="password" name="password-again" placeholder="Şifrenizi Doğrulayın">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+                <button class="login">Kayıt Ol</button>
+            </form>
+
+        </div>
+    </div>
+</main>

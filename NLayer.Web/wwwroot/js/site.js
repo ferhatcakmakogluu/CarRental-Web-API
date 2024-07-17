@@ -26,6 +26,10 @@ document.addEventListener('click', (event) => {
     const isClickInside = sidebar.contains(event.target) || menuBtn.contains(event.target);
 
     if (!isClickInside) {
-        sidebar.style.left = "-172px";
+        sidebar.style.left = "-200px";
     }
+});
+
+document.getElementById('dateInput').addEventListener('click', function () {
+    document.getElementById('birthdateInput').focus();
 });
