@@ -1,12 +1,24 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NLayer.Core.DTOs;
+using NLayer.Core.Entities;
+using NLayer.Web.Services;
+using System.Net.Http;
+using System.Text.Json;
 
 namespace NLayer.Web.Controllers
 {
     public class LoginController : Controller
     {
-        public IActionResult Index()
+        private readonly UserApiService _userApiService;
+
+        public LoginController(UserApiService userApiService)
         {
+            _userApiService = userApiService;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var response = await _userApiService.GetAllUserAsync();
             return View();
         }
 
