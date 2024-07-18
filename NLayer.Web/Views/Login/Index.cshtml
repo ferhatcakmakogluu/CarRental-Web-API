@@ -1,4 +1,6 @@
-﻿@{
+﻿@model AccountDto
+
+@{
     ViewData["Title"] = "Login";
     Layout = "_Layout";
 }
@@ -29,18 +31,18 @@
                 <div class="line"></div>
             </div>
 
-            <form>
-                <label for="email">Email:</label>
+            <form asp-controller="Login" asp-action="Index" method="post">
+                <label for="Email">Email:</label>
                 <div class="custome-input">
-                    <input type="email" name="email" placeholder="Mail Adresiniz" autocomplete="off">
+                    <input asp-for="Email" type="email" name="Email" placeholder="Mail Adresiniz" autocomplete="off">
                     <i class='bx bx-at'></i>
                 </div>
-                <label for="password">Şifre:</label>
+                <label for="Password">Şifre:</label>
                 <div class="custome-input">
-                    <input type="password" name="password" placeholder="Şifreniz">
+                    <input asp-for="Password" type="password" name="Password" placeholder="Şifreniz">
                     <i class='bx bx-lock-alt'></i>
                 </div>
-                <button class="login">Giriş Yap</button>
+                <button type="submit" class="login">Giriş Yap</button>
                 <div class="links">
                     <a href="#">Şifremi Sıfırla</a>
                     <a asp-controller="Login" asp-action="Register">Bir Hesabınız yok mu?</a>

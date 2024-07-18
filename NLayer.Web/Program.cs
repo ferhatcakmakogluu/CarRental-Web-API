@@ -9,6 +9,7 @@ using NLayer.Web.Modules;
 using FluentValidation.AspNetCore;
 using NLayer.Service.Validation;
 using NLayer.Service.Mapping;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,14 @@ builder.Services.AddHttpClient();
 // Add services to the container.
 builder.Services.AddControllersWithViews().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<UserDtoValidator>());
 
+
+builder.Services.AddSession(opt =>
+{
+    opt.Cookie.HttpOnly = true;
+    opt.Cookie.IsEssential = true;
+});
+
+builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
@@ -35,7 +44,10 @@ builder.Services.AddHttpClient<UserApiService>(opt =>
 {
     opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
 });
-
+builder.Services.AddHttpClient<AccountApiService>(opt =>
+{
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+});
 
 builder.Services.AddScoped(typeof(NotFoundFilter<>));
 
@@ -46,6 +58,8 @@ builder.Host.ConfigureContainer<ContainerBuilder>
     (containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
 
 var app = builder.Build();
+
+app.UseSession();
 
 app.UseExceptionHandler("/Home/Error");
 // Configure the HTTP request pipeline.

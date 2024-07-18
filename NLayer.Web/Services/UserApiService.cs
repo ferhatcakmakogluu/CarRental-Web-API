@@ -28,5 +28,6 @@ namespace NLayer.Web.Services
             var responseBody = await response.Content.ReadFromJsonAsync<CustomResponseDto<UserDto>>();
             return responseBody.Data;
         }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using NLayer.Core.DTOs;
+using NLayer.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,13 @@ namespace NLayer.Service.Validation
 {
     public class AccountDtoValidator : AbstractValidator<AccountDto>
     {
-        public AccountDtoValidator()
+        private readonly AppDbContext _appDbContext;
+
+        public AccountDtoValidator(AppDbContext appDbContext)
         {
+            _appDbContext = appDbContext;
+
+
             //Email
             RuleFor(x => x.Email)
                 .NotEmpty().WithMessage("{PropertyName} is not empty")
