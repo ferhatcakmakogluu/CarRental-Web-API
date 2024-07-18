@@ -38,36 +38,43 @@
                     <input asp-for="Name" type="text" name="name" placeholder="İsminiz" autocomplete="off" required>
                     <i class='bx bx-face'></i>
                 </div>
+                <span asp-validation-for="Name" class="danger-span-alert"></span>
                 <label for="LastName">Soyisim</label>
                 <div class="custome-input">
                     <input asp-for="LastName" type="text" name="LastName" placeholder="Soyisminiz" autocomplete="off" required>
                     <i class='bx bx-face'></i>
                 </div>
+                <span asp-validation-for="LastName" class="danger-span-alert"></span>
                 <label for="BirthDate">Doğum Tarihi</label>
                 <div class="custome-input" id="dateInput">
                     <input asp-for="BirthDate" type="date" id="birthdateInput" name="BirthDate" placeholder="Doğum Tarihiniz" autocomplete="off" required>
                     <i class='bx bx-calendar'></i>
                 </div>
+                <span asp-validation-for="BirthDate" class="danger-span-alert"></span>
                 <label for="PhoneNumber">Telefon Numarası</label>
                 <div class="custome-input">
                     <input asp-for="PhoneNumber" type="number" name="PhoneNumber" maxlength="11" placeholder="Telefon Numaranız" autocomplete="off" required>
                     <i class='bx bx-phone'></i>
                 </div>
+                <span asp-validation-for="PhoneNumber" class="danger-span-alert"></span>
                 <label for="Email">Email</label>
                 <div class="custome-input">
                     <input asp-for="Email" type="email" name="Email" placeholder="Mail Adresiniz" autocomplete="off" required>
                     <i class='bx bx-envelope'></i>
                 </div>
+                <span asp-validation-for="Email" class="danger-span-alert"></span>
                 <label for="Password">Şifre</label>
                 <div class="custome-input">
                     <input asp-for="Password" type="password" name="Password" placeholder="Şifreniz" required>
                     <i class='bx bx-lock-alt'></i>
                 </div>
+                <span asp-validation-for="Password" class="danger-span-alert"></span>
                 <label for="PasswordAgain">Şifre Tekrar</label>
                 <div class="custome-input">
                     <input asp-for="PasswordAgain" type="password" name="PasswordAgain" placeholder="Şifrenizi Doğrulayın" required>
                     <i class='bx bx-lock-alt'></i>
                 </div>
+                <span asp-validation-for="PasswordAgain" class="danger-span-alert"></span>
                 <button type="submit" class="login">Kayıt Ol</button>
             </form>
 

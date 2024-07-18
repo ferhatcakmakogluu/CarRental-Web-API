@@ -28,7 +28,7 @@ namespace NLayer.Service.Validation
                 .Must(pass => pass.Length < 55).WithMessage("Your {PropertyName} can be a maximum of 55 characters")
                 .Matches(@"[A-Z]+").WithMessage("Your {PropertyName} must contain at least one uppercase letter")
                 .Matches(@"\d+").WithMessage("Your {PropertyName} must contain at least one lowercase letter")
-                .Matches(@"[\W_]+").WithMessage("Your {PropertyName} must contain at least one symbol"); ;
+                .Matches(@"[\W_]+").WithMessage("Your {PropertyName} must contain at least one symbol");
 
             //AccountType
             RuleFor(x => x.AccountType)

@@ -87,6 +87,10 @@
         display: block;
         margin-top: 12px;
     }
+    .login-page .container form .danger-span-alert{
+        color: red;
+        margin: 8px 0;
+    }
 
     .login-page .container form .custome-input {
         position: relative;

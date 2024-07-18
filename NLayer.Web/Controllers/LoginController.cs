@@ -4,6 +4,7 @@ using NLayer.Core.Entities;
 using NLayer.Web.Services;
 using System.Net.Http;
 using System.Text.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NLayer.Web.Controllers
 {
@@ -27,10 +28,16 @@ namespace NLayer.Web.Controllers
             return View();
         }
 
+
         [HttpPost]
-        public IActionResult Register(UserDto user)
+        public async Task<IActionResult> Register(UserDto userDto)
         {
-            return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
+            {
+                await _userApiService.SaveUser(userDto);
+                return RedirectToAction("Index", "Login");
+            }
+            return View();
         }
     }
 }

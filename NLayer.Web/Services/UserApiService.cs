@@ -14,8 +14,19 @@ namespace NLayer.Web.Services
         public async Task<List<UserDto>> GetAllUserAsync()
         {
             var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<UserDto>>>("User");
-            var x = 0;
             return response.Data;
+        }
+
+        public async Task<UserDto> SaveUser(UserDto userDto)
+        {
+            var response = await _httpClient.PostAsJsonAsync("User", userDto);
+            if (!response.IsSuccessStatusCode)
+            {
+                return null;
+            }
+
+            var responseBody = await response.Content.ReadFromJsonAsync<CustomResponseDto<UserDto>>();
+            return responseBody.Data;
         }
     }
 }
