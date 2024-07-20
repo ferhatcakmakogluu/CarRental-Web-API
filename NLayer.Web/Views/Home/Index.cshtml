@@ -1,4 +1,6 @@
-﻿@{
+﻿@model List<CarFeatureWithCarDto>
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "_Layout";
 }
@@ -31,6 +33,32 @@
                 <p>Here are jobs that fit your skill set</p>
             </div>
 
+            <div class="job-cards">
+                @foreach(var item in Model)
+                {
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="job-info">
+                                <i class='bx bxl-apple'></i>
+                                <div>
+                                    <h5>@item.Car.Brand <span> | @item.Car.Model</span></h5>
+                                    <h5>Günlük Ücret: <span> @item.Car.Price</span></h5>
+                                    <p>San Francisco, USA</p>
+                                </div>
+                            </div>
+                            <i class='bx bx-bookmark-plus'></i>
+                        </div>
+                        <div class="card-tags">
+                            <a href="#">Remote</a>
+                            <a href="#">Freelance</a>
+                        </div>
+                        <div class="card-desc">
+                            We are seeking a Junior UI Designer with a passion for creating intuitive user interfaces. Join our dynamic team at Apple and contribute to innovative design projects.
+                        </div>
+                    </div>
+                }
+            </div>
+            <!--
             <div class="job-cards">
                 <div class="card">
                     <div class="card-header">
@@ -213,7 +241,7 @@
                     </div>
                 </div>
             </div>
-
+            -->
         </div>
         <div class="filters">
             <div class="header">
@@ -223,7 +251,6 @@
             <div class="item">
                 <div class="title">
                     <h4>Marka</h4>
-                    <!--<a href="#">Filtreyi temizle</a>-->
                 </div>
                 <div class="checkbox">
                     <div>

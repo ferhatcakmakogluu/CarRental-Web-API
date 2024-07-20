@@ -314,13 +314,17 @@ body {
                         
 
                             .container main .content .job-cards .card .card-header .job-info h5 {
-                                font-weight: 500;
+                                font-weight: 600;
                             }
 
-                                .container main .content .job-cards .card .card-header .job-info h5 span {
-                                    font-size: 12px;
-                                    color: #a4a8ac;
-                                }
+                               
+
+                                    .container main .content .job-cards .card .card-header .job-info h5 span {
+                                        font-size: 12px;
+                                        color: #a4a8ac;
+                                    }
+
+                                        
 
                             .container main .content .job-cards .card .card-header .job-info a {
                                 font-weight: bold;

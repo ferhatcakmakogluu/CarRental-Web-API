@@ -42,6 +42,7 @@
                     <input asp-for="Password" type="password" name="Password" placeholder="Şifreniz">
                     <i class='bx bx-lock-alt'></i>
                 </div>
+                <span class="danger-span-alert">@ViewBag.LoginErrorMessage</span>
                 <button type="submit" class="login">Giriş Yap</button>
                 <div class="links">
                     <a href="#">Şifremi Sıfırla</a>

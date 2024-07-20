@@ -41,9 +41,11 @@ namespace NLayer.Web.Controllers
                 string userId = response.UserId.ToString();
                 Response.Cookies.Append("user", userId, cookieOptions);
                 ViewBag.CookieUserId = response.UserId;
+                ViewBag.LoginErrorMessage = "";
                 //HttpContext.Session.SetInt32("UserId", response.UserId);
                 return RedirectToAction("Index","Home");
             }
+            ViewBag.LoginErrorMessage = "Kullanıcı adı veya şifre hatalı!";
             return View();
         }
 
