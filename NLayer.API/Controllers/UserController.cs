@@ -21,6 +21,7 @@ namespace NLayer.API.Controllers
             _accountService = accountService;
         }
 
+        [ServiceFilter(typeof(NotFoundFilter<User>))]
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
