@@ -14,6 +14,8 @@ namespace NLayer.Core.DTOs
         public decimal Price { get; set; }
         public List<string>? Photos { get; set; }
         public string Description { get; set; }
+        public string Location { get; set; }
+        public string State { get; set; }
         public int UserId { get; set; }
     }
 }
