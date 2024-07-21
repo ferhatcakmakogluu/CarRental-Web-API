@@ -33,6 +33,13 @@ namespace NLayer.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Filter(CarFilterModel filter)
+        {
+            var filteredData = await _carFeatureApiService.GetFilteredCarFeatureWithCar(filter);
+            return View(filteredData);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(ErrorViewModel errorViewModel)
         {

@@ -38,7 +38,7 @@
             </div>
 
             <div class="job-cards">
-                @foreach(var item in Model)
+                @foreach (var item in Model)
                 {
                     <div class="card">
                         <div class="card-header">
@@ -62,7 +62,7 @@
                     </div>
                 }
             </div>
-           
+
         </div>
         <form asp-controller="Home" asp-action="Filter" method="post">
             <div class="filters">
@@ -304,6 +304,6 @@
                 </div>
             </div>
         </form>
-        
+
     </main>
 </div>

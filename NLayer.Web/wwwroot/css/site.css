@@ -269,6 +269,7 @@ body {
                     border: 2px solid #F2F2F2;
                     border-radius: 10px;
                     transition: all 0.3s ease;
+                    cursor: pointer;
                 }
 
                     .container main .content .job-cards .card:hover {
@@ -323,6 +324,11 @@ body {
                                         font-size: 12px;
                                         color: #a4a8ac;
                                     }
+
+                                .container main .content .job-cards .card .card-header .job-info h4 span {
+                                    font-size: 12px;
+                                    color: #a4a8ac;
+                                }
 
                                         
 
