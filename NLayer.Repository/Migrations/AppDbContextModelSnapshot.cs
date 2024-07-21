@@ -61,7 +61,11 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 1,
+<<<<<<< HEAD
+                            AccountCreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(6837),
+=======
                             AccountCreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2609),
+>>>>>>> master
                             AccountType = "RENTER",
                             Email = "ferhatcakmakoglu@gmail.com",
                             Password = "123456",
@@ -70,7 +74,11 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 2,
+<<<<<<< HEAD
+                            AccountCreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(6852),
+=======
                             AccountCreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2625),
+>>>>>>> master
                             AccountType = "RENTER",
                             Email = "tryit@gmail.com",
                             Password = "123456789",
@@ -79,7 +87,11 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 3,
+<<<<<<< HEAD
+                            AccountCreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(6854),
+=======
                             AccountCreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2627),
+>>>>>>> master
                             AccountType = "RENTER",
                             Email = "helloworld@gmail.com",
                             Password = "147852369",
@@ -88,7 +100,11 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 4,
+<<<<<<< HEAD
+                            AccountCreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(6855),
+=======
                             AccountCreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2628),
+>>>>>>> master
                             AccountType = "USER",
                             Email = "ali@gmail.com",
                             Password = "159852364",
@@ -97,7 +113,11 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 5,
+<<<<<<< HEAD
+                            AccountCreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(6856),
+=======
                             AccountCreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2630),
+>>>>>>> master
                             AccountType = "USER",
                             Email = "veli@gmail.com",
                             Password = "236547895",
@@ -126,6 +146,10 @@ namespace NLayer.Repository.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasMaxLength(125)
@@ -136,6 +160,10 @@ namespace NLayer.Repository.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -154,60 +182,96 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 1,
                             Brand = "BMW",
+<<<<<<< HEAD
+                            CreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7046),
+=======
                             CreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2834),
+>>>>>>> master
                             Description = "Hızlı bir araba",
+                            Location = "Türkiye",
                             Model = "iX",
                             Price = 2300m,
+                            State = "İstanbul",
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
                             Brand = "Volvo",
+<<<<<<< HEAD
+                            CreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7048),
+=======
                             CreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2836),
+>>>>>>> master
                             Description = "Yol tutuşu harika bir araba",
+                            Location = "Türkiye",
                             Model = "XC90",
                             Price = 1950m,
+                            State = "Ankara",
                             UserId = 1
                         },
                         new
                         {
                             Id = 3,
                             Brand = "Fiat",
+<<<<<<< HEAD
+                            CreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7050),
+=======
                             CreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2837),
+>>>>>>> master
                             Description = "Günlük içler için ideal",
+                            Location = "Türkiye",
                             Model = "Egea Multijet",
                             Price = 950m,
+                            State = "İzmir",
                             UserId = 2
                         },
                         new
                         {
                             Id = 4,
                             Brand = "Mercedes",
+<<<<<<< HEAD
+                            CreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7051),
+=======
                             CreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2839),
+>>>>>>> master
                             Description = "Konfor harika",
+                            Location = "Türkiye",
                             Model = "E350",
                             Price = 1450m,
+                            State = "Bursa",
                             UserId = 2
                         },
                         new
                         {
                             Id = 5,
                             Brand = "Peugeot",
+<<<<<<< HEAD
+                            CreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7053),
+=======
                             CreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2840),
+>>>>>>> master
                             Description = "Yeni nesil tasarım",
+                            Location = "Türkiye",
                             Model = "3008 Gt",
                             Price = 2750m,
+                            State = "Trabzon",
                             UserId = 2
                         },
                         new
                         {
                             Id = 6,
                             Brand = "Audi",
+<<<<<<< HEAD
+                            CreatedDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7054),
+=======
                             CreatedDate = new DateTime(2024, 7, 21, 22, 42, 8, 139, DateTimeKind.Local).AddTicks(2841),
+>>>>>>> master
                             Description = "Modern, konforlu ve hızlı",
+                            Location = "Türkiye",
                             Model = "A8 Long",
                             Price = 3000m,
+                            State = "Zonguldak",
                             UserId = 3
                         });
                 });
@@ -322,6 +386,16 @@ namespace NLayer.Repository.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Adress")
+<<<<<<< HEAD
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+=======
+>>>>>>> master
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
@@ -333,6 +407,10 @@ namespace NLayer.Repository.Migrations
                         .IsRequired()
                         .HasMaxLength(125)
                         .HasColumnType("nvarchar(125)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
@@ -351,40 +429,55 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 1,
                             Adress = "X Mahallesi ",
+                            BirthDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7120),
+                            Email = "ferhat@gmail.com",
                             LastName = "Cakmakoglu",
                             Name = "Ferhat",
+                            Password = "Fe.147852639",
                             PhoneNumber = "12365478914"
                         },
                         new
                         {
                             Id = 2,
                             Adress = "Y Mahallesi ",
+                            BirthDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7121),
+                            Email = "ahmet@gmail.com",
                             LastName = "Tellioglu",
                             Name = "Ahmet",
+                            Password = "Ah.147852639",
                             PhoneNumber = "96325874125"
                         },
                         new
                         {
                             Id = 3,
                             Adress = "Z Mahallesi ",
+                            BirthDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7123),
+                            Email = "kerem@gmail.com",
                             LastName = "Can",
                             Name = "Kerem",
+                            Password = "Ke.147852639",
                             PhoneNumber = "25874123654"
                         },
                         new
                         {
                             Id = 4,
                             Adress = "C Mahallesi ",
+                            BirthDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7124),
+                            Email = "ali@gmail.com",
                             LastName = "Vurgun",
                             Name = "Ali",
+                            Password = "Al.147852639",
                             PhoneNumber = "58963214875"
                         },
                         new
                         {
                             Id = 5,
                             Adress = "AA Mahallesi ",
+                            BirthDate = new DateTime(2024, 7, 21, 22, 59, 37, 218, DateTimeKind.Local).AddTicks(7125),
+                            Email = "veli@gmail.com",
                             LastName = "Menur",
                             Name = "Veli",
+                            Password = "Ve.147852639",
                             PhoneNumber = "98563210254"
                         });
                 });

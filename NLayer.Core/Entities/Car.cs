@@ -16,7 +16,8 @@ namespace NLayer.Core.Entities
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
-
+        public string Location { get; set; }
+        public string State { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
     }

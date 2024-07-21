@@ -21,6 +21,8 @@ namespace NLayer.Repository.Seeds
                     Brand = "BMW",
                     Model = "iX",
                     Price = 2300,
+                    Location = "Türkiye",
+                    State = "İstanbul",
                     Description = "Hızlı bir araba",
                     CreatedDate = DateTime.Now
                 },
@@ -31,6 +33,8 @@ namespace NLayer.Repository.Seeds
                     Brand = "Volvo",
                     Model = "XC90",
                     Price = 1950,
+                    Location = "Türkiye",
+                    State = "Ankara",
                     Description = "Yol tutuşu harika bir araba",
                     CreatedDate = DateTime.Now
                 },
@@ -41,6 +45,8 @@ namespace NLayer.Repository.Seeds
                     Brand = "Fiat",
                     Model = "Egea Multijet",
                     Price = 950,
+                    Location = "Türkiye",
+                    State = "İzmir",
                     Description = "Günlük içler için ideal",
                     CreatedDate = DateTime.Now
                 },
@@ -51,6 +57,8 @@ namespace NLayer.Repository.Seeds
                     Brand = "Mercedes",
                     Model = "E350",
                     Price = 1450,
+                    Location = "Türkiye",
+                    State = "Bursa",
                     Description = "Konfor harika",
                     CreatedDate = DateTime.Now
                 },
@@ -61,6 +69,8 @@ namespace NLayer.Repository.Seeds
                     Brand = "Peugeot",
                     Model = "3008 Gt",
                     Price = 2750,
+                    Location = "Türkiye",
+                    State = "Trabzon",
                     Description = "Yeni nesil tasarım",
                     CreatedDate = DateTime.Now
                 },
@@ -71,6 +81,8 @@ namespace NLayer.Repository.Seeds
                     Brand = "Audi",
                     Model = "A8 Long",
                     Price = 3000,
+                    Location = "Türkiye",
+                    State = "Zonguldak",
                     Description = "Modern, konforlu ve hızlı",
                     CreatedDate = DateTime.Now
                 }

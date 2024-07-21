@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using NLayer.Core.DTOs;
+using NLayer.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,13 @@ namespace NLayer.Service.Validation
 {
     public class AccountDtoValidator : AbstractValidator<AccountDto>
     {
-        public AccountDtoValidator()
+        private readonly AppDbContext _appDbContext;
+
+        public AccountDtoValidator(AppDbContext appDbContext)
         {
+            _appDbContext = appDbContext;
+
+
             //Email
             RuleFor(x => x.Email)
                 .NotEmpty().WithMessage("{PropertyName} is not empty")
@@ -28,7 +34,7 @@ namespace NLayer.Service.Validation
                 .Must(pass => pass.Length < 55).WithMessage("Your {PropertyName} can be a maximum of 55 characters")
                 .Matches(@"[A-Z]+").WithMessage("Your {PropertyName} must contain at least one uppercase letter")
                 .Matches(@"\d+").WithMessage("Your {PropertyName} must contain at least one lowercase letter")
-                .Matches(@"[\W_]+").WithMessage("Your {PropertyName} must contain at least one symbol"); ;
+                .Matches(@"[\W_]+").WithMessage("Your {PropertyName} must contain at least one symbol");
 
             //AccountType
             RuleFor(x => x.AccountType)
