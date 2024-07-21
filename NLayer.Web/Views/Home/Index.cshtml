@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="job-info">
-                                <i class='bx bxl-apple'></i>
+                                <i class='bx bx-car'></i>
                                 <div>
                                     <h5>@item.Car.Brand <span> | @item.Car.Model</span></h5>
                                     <h5>Günlük Ücret: <span> @item.Car.Price</span></h5>
@@ -49,12 +49,12 @@
                             <i class='bx bx-bookmark-plus'></i>
                         </div>
                         <div class="card-tags">
-                            <a href="#">Remote</a>
-                            <a href="#">Freelance</a>
+                            <a href="#">Km: @item.Km</a>
+                            <a href="#">@item.FuelType</a>
+                            <a href="#">@item.BodyType</a>
+                            <a href="#">@item.GearType</a>
                         </div>
-                        <div class="card-desc">
-                            We are seeking a Junior UI Designer with a passion for creating intuitive user interfaces. Join our dynamic team at Apple and contribute to innovative design projects.
-                        </div>
+                        <div class="card-desc">@item.Car.Description</div>
                     </div>
                 }
             </div>

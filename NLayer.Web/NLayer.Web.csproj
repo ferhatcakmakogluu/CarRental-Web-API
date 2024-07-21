@@ -32,4 +32,8 @@
     <ProjectReference Include="..\NLayer.Service\NLayer.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\Images\" />
+  </ItemGroup>
+
 </Project>
