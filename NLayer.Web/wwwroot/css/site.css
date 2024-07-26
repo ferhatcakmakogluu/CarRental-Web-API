@@ -156,8 +156,8 @@ body {
         gap: 20px;
     }
 
-        .container .nav .search,
-        .container .nav .city {
+        .container .nav  .search,
+        .container .nav  .city {
             display: flex;
             align-items: center;
             background: #F2F2F2;
@@ -165,8 +165,8 @@ body {
             width: 100%;
         }
 
-            .container .nav .search input,
-            .container .nav .city input {
+            .container .nav  .search input,
+            .container .nav  .city input {
                 width: 100%;
                 padding: 12px;
                 border: none;
@@ -174,15 +174,15 @@ body {
                 padding-left: 36px;
             }
 
-            .container .nav .search i,
-            .container .nav .city i {
+            .container .nav  .search i,
+            .container .nav  .city i {
                 position: absolute;
                 font-size: 23px;
                 padding: 6px;
                 color: #666869;
             }
 
-        .container .nav > button {
+        .container .nav  > button {
             background: #111;
             color: #fafafa;
             border: none;
@@ -498,7 +498,7 @@ body {
         flex-direction: column-reverse;
     }
 
-    .container .nav .city {
+    .container .nav  .city {
         display: none;
     }
 

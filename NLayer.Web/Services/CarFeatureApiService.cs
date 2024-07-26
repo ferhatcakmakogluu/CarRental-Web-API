@@ -1,4 +1,5 @@
-﻿using NLayer.Core.DTOs;
+﻿using Microsoft.EntityFrameworkCore;
+using NLayer.Core.DTOs;
 using NLayer.Web.Models;
 
 namespace NLayer.Web.Services
@@ -45,6 +46,19 @@ namespace NLayer.Web.Services
                 query = query.Where(x => filter.GearType.Contains(x.GearType));
             }
 
+            
+            if (filter.MinKm != null)
+            {
+                int minKm = int.Parse(filter.MinKm);
+                query = query.Where(x => int.Parse(x.Km) >= minKm);
+            }
+
+            if (filter.MaxKm != null)
+            {
+                int maxKm = int.Parse(filter.MaxKm);
+                query = query.Where(x => int.Parse(x.Km) <= maxKm);
+            }
+
             if (filter.Location != null)
             {
                 query = query.Where(x => x.Car.Location.Equals(filter.Location, StringComparison.OrdinalIgnoreCase) || x.Car.State.Equals(filter.Location, StringComparison.OrdinalIgnoreCase));
@@ -55,28 +69,45 @@ namespace NLayer.Web.Services
                 query = query.Where(x => filter.Color.Contains(x.Color));
             }
 
+            if (filter.BrandOrModel != null)
+            {
+                query = query.Where(x=> x.Car.Brand == filter.BrandOrModel || x.Car.Model == filter.BrandOrModel);
+            }
+
             var filteredData = query.ToList();
 
-            /*
-            int minKm = filter.Km.Count > 0 ? Int32.Parse(filter.Km[0]) : 0;
-            int maxKm = filter.Km.Count > 1 ? Int32.Parse(filter.Km[1]) : int.MaxValue;
-
-            var filteredData = allCars.Data
-                .Where(x => filter.Brand != null && filter.Brand.Contains(x.Car.Brand))
-                .Where(x => filter.BodyType != null && filter.BodyType.Contains(x.BodyType))
-                .Where(x => filter.FuelType != null && filter.FuelType.Contains(x.FuelType))
-                .Where(x => filter.GearType != null && filter.GearType.Contains(x.GearType))
-                .Where(x => filter.Location != null && (x.Car.Location.Equals(filter.Location, StringComparison.OrdinalIgnoreCase) || x.Car.State.Equals(filter.Location, StringComparison.OrdinalIgnoreCase)))
-                .Where(x => filter.Color != null && filter.Color.Contains(x.Color))
-                .ToList();
-            */
-
-
-            /*var filteredData = allCars.Data
-                .Where(x => filter.BodyType.Contains(x.BodyType))
-                .Where(x => filter.GearType.Contains(x.GearType))
-                .ToList();*/
             return filteredData;
         }
+
+        public async Task<IDictionary<string, int>> GetCarCountsByBrand()
+        {
+            var cars = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<CarFeatureWithCarDto>>>("CarFeature/GetCarFeatureWithCar");
+            return cars.Data.GroupBy(x => x.Car.Brand).ToDictionary(d => d.Key, d => d.Count());
+        }
+
+        public async Task<IDictionary<string,int>> GetCarCountsByBodyType()
+        {
+            var cars = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<CarFeatureWithCarDto>>>("CarFeature/GetCarFeatureWithCar");
+            return cars.Data.GroupBy(x => x.BodyType).ToDictionary(d => d.Key, d => d.Count());
+        }
+
+        public async Task<IDictionary<string, int>> GetCarCountsByFuelType()
+        {
+            var cars = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<CarFeatureWithCarDto>>>("CarFeature/GetCarFeatureWithCar");
+            return cars.Data.GroupBy(x => x.FuelType).ToDictionary(d => d.Key, d => d.Count());
+        }
+
+        public async Task<IDictionary<string, int>> GetCarCountsByGearType()
+        {
+            var cars = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<CarFeatureWithCarDto>>>("CarFeature/GetCarFeatureWithCar");
+            return cars.Data.GroupBy(x => x.GearType).ToDictionary(d => d.Key, d => d.Count());
+        }
+
+        public async Task<IDictionary<string, int>> GetCarCountsByColorType()
+        {
+            var cars = await _httpClient.GetFromJsonAsync<CustomResponseDto<List<CarFeatureWithCarDto>>>("CarFeature/GetCarFeatureWithCar");
+            return cars.Data.GroupBy(x => x.Color).ToDictionary(d => d.Key, d => d.Count());
+        }
+
     }
 }
