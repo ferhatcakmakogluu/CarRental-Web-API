@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NLayer.Core.DTOs;
 using NLayer.Core.Entities;
 using NLayer.Core.Enums.EntityTypes;
@@ -30,7 +31,6 @@ namespace NLayer.Web.Controllers
         {
             //eger kullanıcı varsa AccountApiServer de session olusturur
             var response = await _accountApiService.LoginUser(accountDto.Email,accountDto.Password);
-            var x = 10;
             if (response != null)
             {
                 var cookieOptions = new CookieOptions
@@ -39,10 +39,17 @@ namespace NLayer.Web.Controllers
                     HttpOnly = true
                 };
                 string userId = response.UserId.ToString();
-                Response.Cookies.Append("user", userId, cookieOptions);
+                Response.Cookies.Append("userId", userId, cookieOptions);
+
+                var userInfo = await _userApiService.GetUserByIdAsync(userId);
+
+                var userNameSurname = $"{userInfo.Name} {userInfo.LastName}";
+                Response.Cookies.Append("userNameSurname", userNameSurname, cookieOptions);
+
                 ViewBag.CookieUserId = response.UserId;
                 ViewBag.LoginErrorMessage = "";
                 //HttpContext.Session.SetInt32("UserId", response.UserId);
+
                 return RedirectToAction("Index","Home");
             }
             ViewBag.LoginErrorMessage = "Kullanıcı adı veya şifre hatalı!";

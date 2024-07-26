@@ -17,6 +17,12 @@ namespace NLayer.Web.Services
             return response.Data;
         }
 
+        public async Task<UserDto> GetUserByIdAsync(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<UserDto>>("User/"+id);
+            return response.Data;
+        }
+
         public async Task<UserDto> SaveUser(UserDto userDto)
         {
             var response = await _httpClient.PostAsJsonAsync("User", userDto);

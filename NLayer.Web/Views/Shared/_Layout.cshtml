@@ -1,5 +1,9 @@
-﻿@{
+﻿@using NLayer.Repository
+@using NLayer.Web.Services
+@{
     RenderBody();
+    var userId = Context.Request.Cookies["userId"];
+    var userNameSurname = Context.Request.Cookies["userNameSurname"];
 }
 
 <!DOCTYPE html>
@@ -39,34 +43,37 @@
                 </div>
             </div>
         </div>
-
-
-
-        <div class="side-profile">
-            <div class="info">
-                <img src="assets/profile-1.png">
-                <a href="#">Alex.Talent</a>
-                <p>Graphic Designer</p>
-            </div>
-            <div class="skills">
-                <h5>Skills and Expertise</h5>
-                <div class="skill-tags">
-                    <div class="item">
-                        <p>Graphic Designer</p>
-                    </div>
-                    <div class="item">
-                        <p>Illustrator</p>
-                    </div>
-                    <div class="item">
-                        <p>Photoshop</p>
-                    </div>
-                    <div class="item">
-                        <p>HTML/CSS</p>
+        
+        @if (userId != null)
+        {
+            <div class="side-profile">
+                <div class="info">
+                    <img src="assets/profile-1.png">
+                    <a href="#">@userNameSurname</a>
+                    <p>User Id: @userId</p>
+                </div>
+                <div class="skills">
+                    <h5>Skills and Expertise</h5>
+                    <div class="skill-tags">
+                        <div class="item">
+                            <p>Graphic Designer</p>
+                        </div>
+                        <div class="item">
+                            <p>Illustrator</p>
+                        </div>
+                        <div class="item">
+                            <p>Photoshop</p>
+                        </div>
+                        <div class="item">
+                            <p>HTML/CSS</p>
+                        </div>
                     </div>
                 </div>
+                <button>Profili Görüntüle</button>
+                <button style="background-color:red">Çıkış Yap</button>
             </div>
-            <button>View Profile</button>
-        </div>
+        }
+        
 
     </div>
     <div class="container">
