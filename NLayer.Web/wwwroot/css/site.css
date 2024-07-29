@@ -144,6 +144,22 @@ body {
             cursor: pointer;
         }
 
+        .sidebar .side-profile .side-profile-buttons{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .sidebar .side-profile .side-profile-buttons a {
+            margin-top: 16px;
+            width: 100%;
+            border: none;
+            padding: 10px;
+            background: #111;
+            color: #fafafa;
+            border-radius: 10px;
+            cursor: pointer;
+        }
             
 
             .container {
@@ -368,6 +384,87 @@ body {
                         height: calc(18px * 3);
                     }
 
+/*Profile Settings*/
+
+                .container .profile-settings {
+                    max-width: 600px;
+                    margin: 50px auto;
+                    background: #fff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+
+                    .container .profile-settings h2 {
+                        text-align: center;
+                        margin-bottom: 20px;
+                        color: #333;
+                    }
+
+                    .container .profile-settings .form-group {
+                        margin-bottom: 15px;
+                    }
+
+                        .container .profile-settings .form-group label {
+                            display: block;
+                            margin-bottom: 5px;
+                            font-weight: bold;
+                            color: #333;
+                        }
+
+                        .container .profile-settings .form-group input {
+                            width: 100%;
+                            padding: 10px;
+                            box-sizing: border-box;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                        }
+
+                            .container .profile-settings .form-group .old-values{
+                                background-color: gainsboro;
+                            }
+
+                            .container .profile-settings .form-group button {
+                                display: block;
+                                width: 100%;
+                                padding: 10px;
+                                background-color: #007BFF;
+                                color: white;
+                                border: none;
+                                border-radius: 4px;
+                                cursor: pointer;
+                            }
+
+                            .container .profile-settings .form-group button:hover {
+                                background-color: #0056b3;
+                            }
+
+                    .container .profile-settings form .profile-picture {
+                        text-align: center;
+                        margin-bottom: 20px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-evenly;
+                    }
+
+                        .container .profile-settings form .profile-picture img {
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 50%;
+                            border: 2px solid #007BFF;
+                        }
+
+                        .container .profile-settings form .profile-picture input {
+                            margin-top: 10px;
+                        }
+
+                        .container .profile-settings form .profile-picture new-profile-picture {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            justify-content: center;
+                        }
 /*Filters*/
 
 .filters .item .button-filter {

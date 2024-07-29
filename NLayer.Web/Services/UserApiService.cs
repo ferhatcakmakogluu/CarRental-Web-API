@@ -1,14 +1,17 @@
-﻿using NLayer.Core.DTOs;
+﻿using AutoMapper;
+using NLayer.Core.DTOs;
 
 namespace NLayer.Web.Services
 {
     public class UserApiService
     {
         private readonly HttpClient _httpClient;
+        private readonly IMapper _mapper;
 
-        public UserApiService(HttpClient httpClient)
+        public UserApiService(HttpClient httpClient, IMapper mapper = null)
         {
             _httpClient = httpClient;
+            _mapper = mapper;
         }
 
         public async Task<List<UserDto>> GetAllUserAsync()
@@ -23,6 +26,12 @@ namespace NLayer.Web.Services
             return response.Data;
         }
 
+        public async Task<UserUpdateDto> GetUserUpdateDtoByIdAsync(string id)
+        {
+            var response = await _httpClient.GetFromJsonAsync<CustomResponseDto<UserUpdateDto>>("User/" + id);
+            return response.Data;
+        }
+
         public async Task<UserDto> SaveUser(UserDto userDto)
         {
             var response = await _httpClient.PostAsJsonAsync("User", userDto);
@@ -33,6 +42,12 @@ namespace NLayer.Web.Services
 
             var responseBody = await response.Content.ReadFromJsonAsync<CustomResponseDto<UserDto>>();
             return responseBody.Data;
+        }
+
+        public async Task<UserUpdateDto> UpdateUser(UserUpdateDto userDto)
+        {
+            var response = await _httpClient.PutAsJsonAsync("User", userDto);
+            return userDto;
         }
 
     }

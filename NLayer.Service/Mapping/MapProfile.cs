@@ -18,6 +18,9 @@ namespace NLayer.Service.Mapping
             CreateMap<Account, AccountDto>().ReverseMap();
             CreateMap<CarFeature, CarFeatureDto>().ReverseMap();
             CreateMap<User, UserWithCarsDto>();
+            CreateMap<UserDto, UserUpdateDto>().ReverseMap();
+            CreateMap<User, UserUpdateDto>().ReverseMap();
+            CreateMap<UserUpdateDto, AccountDto>();
             CreateMap<Account, AccountWithUserDto>();
             CreateMap<CarFeature, CarFeatureWithCarDto>();
         }
