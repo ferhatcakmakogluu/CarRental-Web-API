@@ -52,5 +52,14 @@ namespace NLayer.API.Controllers
             await _savedCarService.AddAsync(savedCar);
             return CreateActionResult(CustomResponseDto<SavedCar>.Success(201, savedCar));
         }
+
+        [ServiceFilter(typeof (NotFoundFilter<SavedCar>))]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteSavedCar(int id)
+        {
+            var savedCar = await _savedCarService.GetByIdAsync(id);
+            await _savedCarService.RemoveAsync(savedCar);
+            return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
+        }
     }
 }

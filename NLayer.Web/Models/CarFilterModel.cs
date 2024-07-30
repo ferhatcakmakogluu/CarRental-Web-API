@@ -1,4 +1,5 @@
 ﻿using NLayer.Core.DTOs;
+using NLayer.Core.Entities;
 
 namespace NLayer.Web.Models
 {
@@ -15,6 +16,7 @@ namespace NLayer.Web.Models
         public string? MinKm { get; set; } = "0";
         public List<string> Color { get; set; } = new List<string>();
         public List<CarFeatureWithCarDto> CarFeatureWithCars { get; set; }
+        public List<SavedCar> SavedCars { get; set; }
         public IDictionary<string, int> CarBrandCounts { get; set; }
         public IDictionary<string, int> CarBodyTypeCounts { get; set; }
         public IDictionary<string, int> CarGearTypeCounts { get; set; }

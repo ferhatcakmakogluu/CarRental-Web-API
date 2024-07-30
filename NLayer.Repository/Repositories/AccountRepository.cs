@@ -15,6 +15,11 @@ namespace NLayer.Repository.Repositories
         {
         }
 
+        public async Task<Account> GetAccountByUserId(int id)
+        {
+            return await _context.Accounts.Include(x=> x.User).Where(x=> x.UserId == id).FirstOrDefaultAsync();
+        }
+
         public async Task<Account> GetAccountWithUserById(int id)
         {
             return await _context.Accounts.Include(x => x.User).Where(x => x.Id == id).FirstOrDefaultAsync();

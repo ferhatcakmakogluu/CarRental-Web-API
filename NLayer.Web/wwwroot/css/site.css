@@ -299,21 +299,41 @@ body {
                         justify-content: space-between;
                     }
 
-                        .container main .content .job-cards .card .card-header > i {
+                        /*.container main .content .job-cards .card .card-header > a {
                             font-size: 24px;
                             color: #a4a8ac;
                             cursor: pointer;
                             transition: all 0.3s ease;
+                        }*/
+                        .container main .content .job-cards .card .card-header form button {
+                            font-size: 24px;
+                            color: #a4a8ac;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            background: none;
+                            border: none
                         }
 
-                            .container main .content .job-cards .card .card-header > i.active {
+                        /*.container main .content .job-cards .card .card-header > a.active {
                                 color: #111;
-                            }
+                            }*/
+                        .container main .content .job-cards .card .card-header form > button.active {
+                            color: #111;
+                        }
 
+                        /*.container main .content .job-cards .card .card-header > a.active:hover {
+                                    color: #a4a8ac;
+                                }*/
+                        .container main .content .job-cards .card .card-header form > button.active:hover {
+                            color: #a4a8ac;
+                        }
 
-                            .container main .content .job-cards .card .card-header > i:hover {
+                        /*.container main .content .job-cards .card .card-header > a:hover {
                                 color: #111;
-                            }
+                            }*/
+                        .container main .content .job-cards .card .card-header form > button:hover {
+                            color: #111;
+                        }
 
                         .container main .content .job-cards .card .card-header .job-info {
                             display: flex;

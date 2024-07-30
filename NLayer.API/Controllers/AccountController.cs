@@ -43,8 +43,15 @@ namespace NLayer.API.Controllers
         public async Task<IActionResult> GetAccountWithUserById(int id)
         {
             var accountWithUser = await _accountService.GetAccountWithUserById(id);
-            //var accountWithUserDto = _mapper.Map<AccountDto>(accountWithUser);
             return CreateActionResult(CustomResponseDto<AccountWithUserDto>.Success(200, accountWithUser));
+        }
+
+        [ServiceFilter(typeof (NotFoundFilter<User>))]
+        [HttpGet("[action]/{userId}")]
+        public async Task<IActionResult> GetAccountByUserId(int userId)
+        {
+            var accountByUserId = await _accountService.GetAccountByUserId(userId);
+            return CreateActionResult(CustomResponseDto<AccountWithUserDto>.Success(200, accountByUserId));
         }
 
         [HttpPost]
