@@ -172,3 +172,15 @@
             .login-page .container .links a:hover {
                 text-decoration: underline;
             }
+
+/*Profile setting alert*/
+
+        .container .profile-settings .form-group .danger-span-alert {
+            color: red;
+            margin: 8px 0;
+        }
+
+.container .profile-settings .profile-picture .danger-span-alert {
+    color: red;
+    margin: 8px 0;
+}

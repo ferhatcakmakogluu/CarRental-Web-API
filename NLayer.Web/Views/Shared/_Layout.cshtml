@@ -1,5 +1,8 @@
-﻿@{
+﻿
+@{
     RenderBody();
+    var userId = Context.Request.Cookies["userId"];
+    var userNameSurname = Context.Request.Cookies["userNameSurname"];
 }
 
 <!DOCTYPE html>
@@ -21,14 +24,20 @@
                     <i class='bx bx-search-alt'></i>
                     <a asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                 </div>
-                <div class="item @(ViewContext.RouteData.Values["controller"].ToString() =="Login" ? "active" : "")">
-                    <i class='bx bx-message-square-dots'></i>
-                    <a asp-controller="Login" asp-action="Index">Giriş & Kayıt</a>
-                </div>
-                <div class="item @(ViewContext.RouteData.Values["controller"].ToString() =="SavedCar" ? "active" : "")">
-                    <i class='bx bx-briefcase'></i>
-                    <a asp-controller="SavedCar" asp-action="Index">Kaydedilen İlanlar</a>
-                </div>
+                @if(userId == null)
+                {
+                    <div class="item @(ViewContext.RouteData.Values["controller"].ToString() =="Login" ? "active" : "")">
+                        <i class='bx bx-message-square-dots'></i>
+                        <a asp-controller="Login" asp-action="Index">Giriş & Kayıt</a>
+                    </div>
+                }
+                @if(userId != null)
+                {
+                    <div class="item @(ViewContext.RouteData.Values["controller"].ToString() =="SavedCar" ? "active" : "")">
+                        <i class='bx bx-briefcase'></i>
+                        <a asp-controller="SavedCar" asp-action="Index">Kaydedilen İlanlar</a>
+                    </div>
+                }
                 <div class="item">
                     <i class='bx bx-bookmark-minus'></i>
                     <a href="#">Hakkımızda</a>
@@ -39,34 +48,22 @@
                 </div>
             </div>
         </div>
-
-
-
-        <div class="side-profile">
-            <div class="info">
-                <img src="assets/profile-1.png">
-                <a href="#">Alex.Talent</a>
-                <p>Graphic Designer</p>
-            </div>
-            <div class="skills">
-                <h5>Skills and Expertise</h5>
-                <div class="skill-tags">
-                    <div class="item">
-                        <p>Graphic Designer</p>
-                    </div>
-                    <div class="item">
-                        <p>Illustrator</p>
-                    </div>
-                    <div class="item">
-                        <p>Photoshop</p>
-                    </div>
-                    <div class="item">
-                        <p>HTML/CSS</p>
-                    </div>
+        
+        @if (userId != null)
+        {
+            <div class="side-profile">
+                <div class="info">
+                    <img src="~/assets/profile-1.png">
+                    <a href="#">@userNameSurname</a>
+                    <p>User Id: @userId</p>
+                </div>
+                <div class="side-profile-buttons @(ViewContext.RouteData.Values["controller"].ToString() =="Login" && ViewContext.RouteData.Values["action"].ToString() == "Profile" ? "active" : "")">
+                    <a asp-controller="Login" asp-action="Profile">Profili Görüntüle</a>
+                    <a asp-controller="Login" asp-action="Logout" style="background-color:red">Çıkış Yap</a>
                 </div>
             </div>
-            <button>View Profile</button>
-        </div>
+        }
+        
 
     </div>
     <div class="container">

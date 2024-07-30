@@ -1,0 +1,309 @@
+﻿@model List<CarFeatureWithCarDto>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+
+@{
+    var carCount = Model.Count;
+}
+
+<div class="container">
+    <div class="nav">
+        <button id="menuToggle"><i class='bx bx-menu'></i></button>
+        <div class="search">
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Dilediğiniz arabayı arayın">
+        </div>
+        <div class="city">
+            <i class='bx bxs-location-plus'></i>
+            <input type="text" placeholder="Ülke veya bölgede arayın">
+        </div>
+        <button>Search</button>
+        <i class='bx bx-bell'></i>
+        <div class="user-info">
+            <img src="~/assets/profile-1.png">
+            <div>
+                <a href="#">Reza.UI <i class='bx bx-chevron-down'></i></a>
+                <p>Reza@Test.com</p>
+            </div>
+        </div>
+    </div>
+    <main role="main" class="pb-3">
+        <div class="content">
+            <div class="header">
+                <h4>Günlük kiralama yapacağınız araçlarımız <span>(@carCount)</span></h4>
+                <p>Kartlara tıklayarak detaylara ulaşabilirsiniz</p>
+            </div>
+
+            <div class="job-cards">
+                @foreach (var item in Model)
+                {
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="job-info">
+                                <i class='bx bx-car'></i>
+                                <div>
+                                    <h4>@item.Car.Brand <span> | @item.Car.Model</span></h4>
+                                    <h5>Günlük Ücret: <span> @item.Car.Price</span></h5>
+                                    <p>@item.Car.Location, @item.Car.State</p>
+                                </div>
+                            </div>
+                            <i class='bx bx-bookmark-plus'></i>
+                        </div>
+                        <div class="card-tags">
+                            <a href="#">Km: @item.Km</a>
+                            <a href="#">@item.FuelType</a>
+                            <a href="#">@item.BodyType</a>
+                            <a href="#">@item.GearType</a>
+                        </div>
+                        <div class="card-desc">@item.Car.Description</div>
+                    </div>
+                }
+            </div>
+
+        </div>
+        <form asp-controller="Home" asp-action="Filter" method="post">
+            <div class="filters">
+                <div class="header">
+                    <h3>Araç Filtrele</h3>
+                    <a href="#">Filtreyi temizle</a>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <h4>Marka</h4>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Brand" value="BMW">
+                            <label for="BMW">BMW</label>
+                        </div>
+                        <p>50 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Brand" value="Mercedes">
+                            <label for="Mercedes">Mercedes</label>
+                        </div>
+                        <p>150 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Brand" value="Audi">
+                            <label for="Audi">Audi</label>
+                        </div>
+                        <p>20 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Brand" value="Volvo">
+                            <label for="Volvo">Volvo</label>
+                        </div>
+                        <p>14 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Brand" value="Fiat">
+                            <label for="Fiat">Fiat</label>
+                        </div>
+                        <p>65 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Brand" value="Tofaş">
+                            <label for="Tofaş">Tofaş</label>
+                        </div>
+                        <p>80 Adet</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <h4>Kasa Tipi</h4>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="BodyType" value="SEDAN">
+                            <label for="SEDAN">Sedan</label>
+                        </div>
+                        <p>50 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="BodyType" value="COUPE">
+                            <label for="COUPE">Coupe</label>
+                        </div>
+                        <p>100 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="BodyType" value="HATCHBACK">
+                            <label for="HATCHBACK">Hatchback</label>
+                        </div>
+                        <p>45 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="BodyType" value="ROADSTER">
+                            <label for="ROADSTER">Roadster</label>
+                        </div>
+                        <p>50 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="BodyType" value="CABRIO">
+                            <label for="CABRIO">Cabrio</label>
+                        </div>
+                        <p>50 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="BodyType" value="SUV">
+                            <label for="SUV">SUV</label>
+                        </div>
+                        <p>50 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="BodyType" value="CROSSOVER">
+                            <label for="CROSSOVER">Crossover</label>
+                        </div>
+                        <p>50 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="BodyType" value="PICKUP">
+                            <label for="PICKUP">Pickup</label>
+                        </div>
+                        <p>50 Adet</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <h4>Yakıt Tipi</h4>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="FuelType" value="GASOLINE">
+                            <label for="GASOLINE">Benzin</label>
+                        </div>
+                        <p>350 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="FuelType" value="DIESEL">
+                            <label for="DIESEL">Dizel</label>
+                        </div>
+                        <p>140 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="FuelType" value="ELECTRIC">
+                            <label for="ELECTRIC">Elektrik</label>
+                        </div>
+                        <p>40 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="FuelType" value="HYBRID">
+                            <label for="HYBRID">Hybrid</label>
+                        </div>
+                        <p>25 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="FuelType" value="LPG">
+                            <label for="LPG">LPG</label>
+                        </div>
+                        <p>110 Adet</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <h4>Vites Tipi</h4>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="GearType" value="MANUEL">
+                            <label for="MANUEL">Manuel</label>
+                        </div>
+                        <p>450 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="GearType" value="AUTOMATIC">
+                            <label for="AUTOMATIC">Otomatik</label>
+                        </div>
+                        <p>260 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="GearType" value="SEMI_AUTOMATIC">
+                            <label for="SEMI_AUTOMATIC">Yarı Otomatik</label>
+                        </div>
+                        <p>65 Adet</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <h4>Araç Konumu</h4>
+                    </div>
+                    <div class="location">
+                        <i class='bx bxs-location-plus'></i>
+                        <input type="text" name="Location" placeholder="Konum Seç">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <h4>Araç Kilometresi</h4>
+                    </div>
+                    <div class="location">
+                        <i class='bx bx-car'></i>
+                        <input type="number" name="Km" placeholder="Minimum Km">
+                    </div>
+                    <div class="location">
+                        <i class='bx bx-car'></i>
+                        <input type="number" name="Km" placeholder="Maksimum km">
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        <h4>Renk</h4>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Color" value="red">
+                            <label for="red">Kırmızı</label>
+                        </div>
+                        <p>79 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Color" value="blue">
+                            <label for="blue">Mavi</label>
+                        </div>
+                        <p>66 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Color" value="gray">
+                            <label for="gray">Gri</label>
+                        </div>
+                        <p>45 Adet</p>
+                    </div>
+                    <div class="checkbox">
+                        <div>
+                            <input type="checkbox" name="Color" value="brown">
+                            <label for="brown">Kahverengi</label>
+                        </div>
+                        <p>145 Adet</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <button type="submit" class="button-filter">Uygula</button>
+                </div>
+            </div>
+        </form>
+
+    </main>
+</div>

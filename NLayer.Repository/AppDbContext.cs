@@ -16,6 +16,7 @@ namespace NLayer.Repository
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarFeature> CarFeatures { get; set; }
+        public DbSet<SavedCar> SavedCar { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

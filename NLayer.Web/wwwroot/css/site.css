@@ -144,10 +144,28 @@ body {
             cursor: pointer;
         }
 
-.container {
-    flex: 8;
-    padding: 20px 40px 20px 24px;
-}
+        .sidebar .side-profile .side-profile-buttons{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .sidebar .side-profile .side-profile-buttons a {
+            margin-top: 16px;
+            width: 100%;
+            border: none;
+            padding: 10px;
+            background: #111;
+            color: #fafafa;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+            
+
+            .container {
+                flex: 8;
+                padding: 20px 40px 20px 24px;
+            }
 
     .container .nav {
         display: flex;
@@ -156,8 +174,8 @@ body {
         gap: 20px;
     }
 
-        .container .nav .search,
-        .container .nav .city {
+        .container .nav  .search,
+        .container .nav  .city {
             display: flex;
             align-items: center;
             background: #F2F2F2;
@@ -165,8 +183,8 @@ body {
             width: 100%;
         }
 
-            .container .nav .search input,
-            .container .nav .city input {
+            .container .nav  .search input,
+            .container .nav  .city input {
                 width: 100%;
                 padding: 12px;
                 border: none;
@@ -174,15 +192,15 @@ body {
                 padding-left: 36px;
             }
 
-            .container .nav .search i,
-            .container .nav .city i {
+            .container .nav  .search i,
+            .container .nav  .city i {
                 position: absolute;
                 font-size: 23px;
                 padding: 6px;
                 color: #666869;
             }
 
-        .container .nav > button {
+        .container .nav  > button {
             background: #111;
             color: #fafafa;
             border: none;
@@ -269,6 +287,7 @@ body {
                     border: 2px solid #F2F2F2;
                     border-radius: 10px;
                     transition: all 0.3s ease;
+                    cursor: pointer;
                 }
 
                     .container main .content .job-cards .card:hover {
@@ -324,6 +343,11 @@ body {
                                         color: #a4a8ac;
                                     }
 
+                                .container main .content .job-cards .card .card-header .job-info h4 span {
+                                    font-size: 12px;
+                                    color: #a4a8ac;
+                                }
+
                                         
 
                             .container main .content .job-cards .card .card-header .job-info a {
@@ -360,6 +384,87 @@ body {
                         height: calc(18px * 3);
                     }
 
+/*Profile Settings*/
+
+                .container .profile-settings {
+                    max-width: 600px;
+                    margin: 50px auto;
+                    background: #fff;
+                    padding: 20px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+
+                    .container .profile-settings h2 {
+                        text-align: center;
+                        margin-bottom: 20px;
+                        color: #333;
+                    }
+
+                    .container .profile-settings .form-group {
+                        margin-bottom: 15px;
+                    }
+
+                        .container .profile-settings .form-group label {
+                            display: block;
+                            margin-bottom: 5px;
+                            font-weight: bold;
+                            color: #333;
+                        }
+
+                        .container .profile-settings .form-group input {
+                            width: 100%;
+                            padding: 10px;
+                            box-sizing: border-box;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                        }
+
+                            .container .profile-settings .form-group .old-values{
+                                background-color: gainsboro;
+                            }
+
+                            .container .profile-settings .form-group button {
+                                display: block;
+                                width: 100%;
+                                padding: 10px;
+                                background-color: #007BFF;
+                                color: white;
+                                border: none;
+                                border-radius: 4px;
+                                cursor: pointer;
+                            }
+
+                            .container .profile-settings .form-group button:hover {
+                                background-color: #0056b3;
+                            }
+
+                    .container .profile-settings form .profile-picture {
+                        text-align: center;
+                        margin-bottom: 20px;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-evenly;
+                    }
+
+                        .container .profile-settings form .profile-picture img {
+                            width: 150px;
+                            height: 150px;
+                            border-radius: 50%;
+                            border: 2px solid #007BFF;
+                        }
+
+                        .container .profile-settings form .profile-picture input {
+                            margin-top: 10px;
+                        }
+
+                        .container .profile-settings form .profile-picture new-profile-picture {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            justify-content: center;
+                        }
 /*Filters*/
 
 .filters .item .button-filter {
@@ -492,7 +597,7 @@ body {
         flex-direction: column-reverse;
     }
 
-    .container .nav .city {
+    .container .nav  .city {
         display: none;
     }
 

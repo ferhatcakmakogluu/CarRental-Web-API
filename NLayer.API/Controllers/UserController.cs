@@ -63,13 +63,29 @@ namespace NLayer.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateUser(UserDto userDto)
+        public async Task<IActionResult> UpdateUser(UserUpdateDto userUpdateDto)
         {
-            await _userService.UpdateAsync(_mapper.Map<User>(userDto));
-            return CreateActionResult(CustomResponseDto<UserDto>.Success(204, userDto));
+            await _userService.UpdateAsync(_mapper.Map<User>(userUpdateDto));
+
+            var accounts = await _accountService.GetAllAsync();
+            var usId = userUpdateDto.Id;
+            var accountOfUser = accounts.FirstOrDefault(x => x.UserId == userUpdateDto.Id);
+
+            if(accountOfUser != null)
+            {
+                var accountDto = _mapper.Map<AccountDto>(userUpdateDto);
+                accountDto.Id = accountOfUser.Id;
+                accountDto.UserId = accountOfUser.UserId;
+                accountDto.AccountType = accountOfUser.AccountType;
+
+                var account = _mapper.Map<Account>(accountDto);
+                await _accountService.UpdateAsync(account);
+            }
+
+            return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
 
-    [ServiceFilter(typeof(NotFoundFilter<User>))]
+        [ServiceFilter(typeof(NotFoundFilter<User>))]
         [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveUser(int id)
         {

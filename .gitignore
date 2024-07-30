@@ -14,3 +14,14 @@ packages
 *.log
 *.tmp
 *.bak
+
+/NLayer.API/obj/
+/NLayer.Core/obj/
+/NLayer.Repository/obj/
+/NLayer.Service/obj/
+/NLayer.Web/obj/
+/NLayer.API/bin/
+/NLayer.Core/bin/
+/NLayer.Repository/bin/
+/NLayer.Service/bin/
+/NLayer.Web/bin/
