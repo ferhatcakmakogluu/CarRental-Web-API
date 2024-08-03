@@ -13,6 +13,6 @@ namespace NLayer.Repository.EntityConfigurations
             builder.Property(x => x.Email).IsRequired().HasMaxLength(125);
             builder.Property(x => x.Password).IsRequired().HasMaxLength(55);
             builder.Property(x => x.AccountType).IsRequired().HasMaxLength(55);
-        }
+        }   
     }
 }

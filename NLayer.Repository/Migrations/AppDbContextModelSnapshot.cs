@@ -61,7 +61,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            AccountCreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3594),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4672),
                             AccountType = "RENTER",
                             Email = "ferhatcakmakoglu@gmail.com",
                             Password = "123456",
@@ -70,7 +70,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 2,
-                            AccountCreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3607),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4686),
                             AccountType = "RENTER",
                             Email = "tryit@gmail.com",
                             Password = "123456789",
@@ -79,7 +79,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 3,
-                            AccountCreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3608),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4687),
                             AccountType = "RENTER",
                             Email = "helloworld@gmail.com",
                             Password = "147852369",
@@ -88,7 +88,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 4,
-                            AccountCreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3610),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4689),
                             AccountType = "USER",
                             Email = "ali@gmail.com",
                             Password = "159852364",
@@ -97,7 +97,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 5,
-                            AccountCreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3612),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4690),
                             AccountType = "USER",
                             Email = "veli@gmail.com",
                             Password = "236547895",
@@ -162,7 +162,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 1,
                             Brand = "BMW",
-                            CreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3819),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4908),
                             Description = "Hızlı bir araba",
                             Location = "Türkiye",
                             Model = "iX",
@@ -174,7 +174,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 2,
                             Brand = "Volvo",
-                            CreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3821),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4910),
                             Description = "Yol tutuşu harika bir araba",
                             Location = "Türkiye",
                             Model = "XC90",
@@ -186,7 +186,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 3,
                             Brand = "Fiat",
-                            CreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3823),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4911),
                             Description = "Günlük içler için ideal",
                             Location = "Türkiye",
                             Model = "Egea Multijet",
@@ -198,7 +198,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 4,
                             Brand = "Mercedes",
-                            CreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3824),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4913),
                             Description = "Konfor harika",
                             Location = "Türkiye",
                             Model = "E350",
@@ -210,7 +210,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 5,
                             Brand = "Peugeot",
-                            CreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3825),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4914),
                             Description = "Yeni nesil tasarım",
                             Location = "Türkiye",
                             Model = "3008 Gt",
@@ -222,7 +222,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 6,
                             Brand = "Audi",
-                            CreatedDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3827),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4916),
                             Description = "Modern, konforlu ve hızlı",
                             Location = "Türkiye",
                             Model = "A8 Long",
@@ -333,7 +333,7 @@ namespace NLayer.Repository.Migrations
                         });
                 });
 
-            modelBuilder.Entity("NLayer.Core.Entities.SavedCar", b =>
+            modelBuilder.Entity("NLayer.Core.Entities.RenterForm", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -344,15 +344,53 @@ namespace NLayer.Repository.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("FormSendTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FormUpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsApproved")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("RejectDescription")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasDefaultValue("");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("RenterForms");
+                });
+
+            modelBuilder.Entity("NLayer.Core.Entities.SavedCar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("SavedTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CarId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("SavedCar");
 
@@ -360,23 +398,23 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            AccountId = 11,
                             CarId = 4,
-                            SavedTime = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3895)
+                            SavedTime = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4979),
+                            UserId = 16
                         },
                         new
                         {
                             Id = 2,
-                            AccountId = 11,
                             CarId = 5,
-                            SavedTime = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3896)
+                            SavedTime = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4980),
+                            UserId = 16
                         },
                         new
                         {
                             Id = 3,
-                            AccountId = 11,
                             CarId = 6,
-                            SavedTime = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3897)
+                            SavedTime = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(4981),
+                            UserId = 16
                         });
                 });
 
@@ -429,7 +467,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 1,
                             Adress = "X Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3959),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(5045),
                             Email = "ferhat@gmail.com",
                             LastName = "Cakmakoglu",
                             Name = "Ferhat",
@@ -440,7 +478,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 2,
                             Adress = "Y Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3960),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(5047),
                             Email = "ahmet@gmail.com",
                             LastName = "Tellioglu",
                             Name = "Ahmet",
@@ -451,7 +489,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 3,
                             Adress = "Z Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3962),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(5048),
                             Email = "kerem@gmail.com",
                             LastName = "Can",
                             Name = "Kerem",
@@ -462,7 +500,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 4,
                             Adress = "C Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3963),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(5049),
                             Email = "ali@gmail.com",
                             LastName = "Vurgun",
                             Name = "Ali",
@@ -473,7 +511,7 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 5,
                             Adress = "AA Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 29, 22, 32, 50, 871, DateTimeKind.Local).AddTicks(3964),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 28, 53, 733, DateTimeKind.Local).AddTicks(5051),
                             Email = "veli@gmail.com",
                             LastName = "Menur",
                             Name = "Veli",
@@ -515,15 +553,34 @@ namespace NLayer.Repository.Migrations
                     b.Navigation("Car");
                 });
 
-            modelBuilder.Entity("NLayer.Core.Entities.SavedCar", b =>
+            modelBuilder.Entity("NLayer.Core.Entities.RenterForm", b =>
                 {
-                    b.HasOne("NLayer.Core.Entities.Car", "Car")
+                    b.HasOne("NLayer.Core.Entities.Account", "Account")
                         .WithMany()
-                        .HasForeignKey("CarId")
+                        .HasForeignKey("AccountId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Car");
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("NLayer.Core.Entities.SavedCar", b =>
+                {
+                    b.HasOne("NLayer.Core.Entities.Car", "Cars")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("NLayer.Core.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cars");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("NLayer.Core.Entities.User", b =>

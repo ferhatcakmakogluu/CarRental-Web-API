@@ -11,5 +11,6 @@ namespace NLayer.Core.Services
     public interface IAccountService : IService<Account>
     {
         Task<AccountWithUserDto> GetAccountWithUserById(int id);
+        Task<AccountWithUserDto> GetAccountByUserId(int userId);
     }
 }

@@ -24,6 +24,13 @@ namespace NLayer.Service.Services
             _accountRepository = accountRepository;
         }
 
+        public async Task<AccountWithUserDto> GetAccountByUserId(int userId)
+        {
+            var accountByUserId = await _accountRepository.GetAccountByUserId(userId);
+            var accountByUserIdDto = _mapper.Map<AccountWithUserDto>(accountByUserId);
+            return accountByUserIdDto;
+        }
+
         public async Task<AccountWithUserDto> GetAccountWithUserById(int id)
         {
             var accountWithUser = await _accountRepository.GetAccountWithUserById(id);

@@ -10,18 +10,28 @@ namespace NLayer.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly CarFeatureApiService _carFeatureApiService;
+        private readonly SavedCarApiService _savedCarService;
 
-        public HomeController(ILogger<HomeController> logger, CarFeatureApiService carFeatureApiService)
+        public HomeController(ILogger<HomeController> logger, CarFeatureApiService carFeatureApiService, SavedCarApiService savedCarService = null)
         {
             _logger = logger;
             _carFeatureApiService = carFeatureApiService;
+            _savedCarService = savedCarService;
         }
 
         public async Task<IActionResult> Index()
         {
+            var userId = Request.Cookies["userId"];
+
             CarFilterModel filterModel = new CarFilterModel();
             var carFeatureWithCarsData = await _carFeatureApiService.GetCarFeatureWithCarsAsync();
             filterModel.CarFeatureWithCars = carFeatureWithCarsData;
+
+           if(userId != null)
+            {
+                var savedCars = await _savedCarService.GetSavedCarOfUserByUserId(userId);
+                filterModel.SavedCars = savedCars;
+            }
             
             //for filter attributes
             filterModel.CarBrandCounts = await _carFeatureApiService.GetCarCountsByBrand();

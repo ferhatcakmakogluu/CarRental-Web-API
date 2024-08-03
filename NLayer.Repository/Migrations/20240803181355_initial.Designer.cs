@@ -12,8 +12,8 @@ using NLayer.Repository;
 namespace NLayer.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240717155455_addBirthDateToUser")]
-    partial class addBirthDateToUser
+    [Migration("20240803181355_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -64,7 +64,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 1,
-                            AccountCreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2172),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(3950),
                             AccountType = "RENTER",
                             Email = "ferhatcakmakoglu@gmail.com",
                             Password = "123456",
@@ -73,7 +73,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 2,
-                            AccountCreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2189),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(3962),
                             AccountType = "RENTER",
                             Email = "tryit@gmail.com",
                             Password = "123456789",
@@ -82,7 +82,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 3,
-                            AccountCreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2191),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(3964),
                             AccountType = "RENTER",
                             Email = "helloworld@gmail.com",
                             Password = "147852369",
@@ -91,7 +91,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 4,
-                            AccountCreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2193),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(3965),
                             AccountType = "USER",
                             Email = "ali@gmail.com",
                             Password = "159852364",
@@ -100,7 +100,7 @@ namespace NLayer.Repository.Migrations
                         new
                         {
                             Id = 5,
-                            AccountCreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2194),
+                            AccountCreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(3967),
                             AccountType = "USER",
                             Email = "veli@gmail.com",
                             Password = "236547895",
@@ -129,6 +129,10 @@ namespace NLayer.Repository.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasMaxLength(125)
@@ -139,6 +143,10 @@ namespace NLayer.Repository.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");
@@ -157,60 +165,72 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 1,
                             Brand = "BMW",
-                            CreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2389),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4177),
                             Description = "Hızlı bir araba",
+                            Location = "Türkiye",
                             Model = "iX",
                             Price = 2300m,
+                            State = "İstanbul",
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
                             Brand = "Volvo",
-                            CreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2391),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4180),
                             Description = "Yol tutuşu harika bir araba",
+                            Location = "Türkiye",
                             Model = "XC90",
                             Price = 1950m,
+                            State = "Ankara",
                             UserId = 1
                         },
                         new
                         {
                             Id = 3,
                             Brand = "Fiat",
-                            CreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2392),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4181),
                             Description = "Günlük içler için ideal",
+                            Location = "Türkiye",
                             Model = "Egea Multijet",
                             Price = 950m,
+                            State = "İzmir",
                             UserId = 2
                         },
                         new
                         {
                             Id = 4,
                             Brand = "Mercedes",
-                            CreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2394),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4183),
                             Description = "Konfor harika",
+                            Location = "Türkiye",
                             Model = "E350",
                             Price = 1450m,
+                            State = "Bursa",
                             UserId = 2
                         },
                         new
                         {
                             Id = 5,
                             Brand = "Peugeot",
-                            CreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2395),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4184),
                             Description = "Yeni nesil tasarım",
+                            Location = "Türkiye",
                             Model = "3008 Gt",
                             Price = 2750m,
+                            State = "Trabzon",
                             UserId = 2
                         },
                         new
                         {
                             Id = 6,
                             Brand = "Audi",
-                            CreatedDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2396),
+                            CreatedDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4185),
                             Description = "Modern, konforlu ve hızlı",
+                            Location = "Türkiye",
                             Model = "A8 Long",
                             Price = 3000m,
+                            State = "Zonguldak",
                             UserId = 3
                         });
                 });
@@ -316,6 +336,91 @@ namespace NLayer.Repository.Migrations
                         });
                 });
 
+            modelBuilder.Entity("NLayer.Core.Entities.RenterForm", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FormSendTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FormUpdateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsApproved")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<string>("RejectDescription")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasDefaultValue("");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.ToTable("RenterForms");
+                });
+
+            modelBuilder.Entity("NLayer.Core.Entities.SavedCar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("SavedTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AccountId");
+
+                    b.HasIndex("CarId");
+
+                    b.ToTable("SavedCar");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AccountId = 11,
+                            CarId = 4,
+                            SavedTime = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4246)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AccountId = 11,
+                            CarId = 5,
+                            SavedTime = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4247)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            AccountId = 11,
+                            CarId = 6,
+                            SavedTime = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4248)
+                        });
+                });
+
             modelBuilder.Entity("NLayer.Core.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -325,7 +430,6 @@ namespace NLayer.Repository.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Adress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("BirthDate")
@@ -345,6 +449,10 @@ namespace NLayer.Repository.Migrations
                         .HasMaxLength(125)
                         .HasColumnType("nvarchar(125)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasMaxLength(11)
@@ -362,50 +470,55 @@ namespace NLayer.Repository.Migrations
                         {
                             Id = 1,
                             Adress = "X Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2480),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4312),
                             Email = "ferhat@gmail.com",
                             LastName = "Cakmakoglu",
                             Name = "Ferhat",
+                            Password = "Fe.147852639",
                             PhoneNumber = "12365478914"
                         },
                         new
                         {
                             Id = 2,
                             Adress = "Y Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2482),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4314),
                             Email = "ahmet@gmail.com",
                             LastName = "Tellioglu",
                             Name = "Ahmet",
+                            Password = "Ah.147852639",
                             PhoneNumber = "96325874125"
                         },
                         new
                         {
                             Id = 3,
                             Adress = "Z Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2483),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4315),
                             Email = "kerem@gmail.com",
                             LastName = "Can",
                             Name = "Kerem",
+                            Password = "Ke.147852639",
                             PhoneNumber = "25874123654"
                         },
                         new
                         {
                             Id = 4,
                             Adress = "C Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2484),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4336),
                             Email = "ali@gmail.com",
                             LastName = "Vurgun",
                             Name = "Ali",
+                            Password = "Al.147852639",
                             PhoneNumber = "58963214875"
                         },
                         new
                         {
                             Id = 5,
                             Adress = "AA Mahallesi ",
-                            BirthDate = new DateTime(2024, 7, 17, 18, 54, 55, 204, DateTimeKind.Local).AddTicks(2485),
+                            BirthDate = new DateTime(2024, 8, 3, 21, 13, 55, 500, DateTimeKind.Local).AddTicks(4337),
                             Email = "veli@gmail.com",
                             LastName = "Menur",
                             Name = "Veli",
+                            Password = "Ve.147852639",
                             PhoneNumber = "98563210254"
                         });
                 });
@@ -439,6 +552,36 @@ namespace NLayer.Repository.Migrations
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Car");
+                });
+
+            modelBuilder.Entity("NLayer.Core.Entities.RenterForm", b =>
+                {
+                    b.HasOne("NLayer.Core.Entities.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("NLayer.Core.Entities.SavedCar", b =>
+                {
+                    b.HasOne("NLayer.Core.Entities.Account", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("NLayer.Core.Entities.Car", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
 
                     b.Navigation("Car");
                 });

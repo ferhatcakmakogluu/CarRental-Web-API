@@ -70,9 +70,20 @@ namespace NLayer.Service.Validation
 
         private Task<string> CheckEmail(string email)
         {
-            bool response = _appDbContext.Users
-                             .Any(user => user.Email == email);
-            if (response)
+            var response = _appDbContext.Users
+                             .AsNoTracking()
+                             .FirstOrDefault(user => user.Email == email);
+            bool checkOwnEmail = false;
+
+            if (response != null)
+            {
+                var userId = response?.Id;
+                checkOwnEmail = _appDbContext.Accounts
+                                        .AsNoTracking()
+                                        .Any(x => x.Email == response.Email);
+            }
+
+            if (response != null && !checkOwnEmail)
             {
                 return Task.FromResult(email);
             }
@@ -81,13 +92,39 @@ namespace NLayer.Service.Validation
 
         private Task<string> CheckPhone(string phone)
         {
-            bool response = _appDbContext.Users
-                             .Any(user => user.PhoneNumber == phone);
+            var response = _appDbContext.Users
+                             .AsNoTracking()
+                             .Any(x => x.PhoneNumber == phone);
+
+
+            bool checkOwnPhone = false;
+
             if (response)
+            {
+                int userId = GetUserIdByPhoneNumber(phone);
+                checkOwnPhone = _appDbContext.Accounts
+                                .AsNoTracking()
+                                .Any(x => x.UserId == userId);
+
+            }
+
+            if (response && !checkOwnPhone)
             {
                 return Task.FromResult(phone);
             }
             return Task.FromResult("");
+        }
+
+        private int GetUserIdByPhoneNumber(string phone)
+        {
+            var user = _appDbContext.Users
+                        .AsNoTracking()
+                        .FirstOrDefault(x => x.PhoneNumber == phone);
+            if(user == null)
+            {
+                return 0;
+            }
+            return user.Id;
         }
     }
 }

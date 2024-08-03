@@ -56,6 +56,10 @@ builder.Services.AddHttpClient<CarFeatureApiService>(opt =>
 {
     opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
 });
+builder.Services.AddHttpClient<SavedCarApiService>(opt =>
+{
+    opt.BaseAddress = new Uri(builder.Configuration["BaseUrl"]);
+});
 
 builder.Services.AddScoped(typeof(NotFoundFilter<>));
 

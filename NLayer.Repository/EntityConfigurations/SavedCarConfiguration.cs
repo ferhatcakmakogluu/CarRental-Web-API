@@ -14,7 +14,7 @@ namespace NLayer.Repository.EntityConfigurations
         public void Configure(EntityTypeBuilder<SavedCar> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.Property(x => x.Id).UseIdentityColumn();        
         }
     }
 }

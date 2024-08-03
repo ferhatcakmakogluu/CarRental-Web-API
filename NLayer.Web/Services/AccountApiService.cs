@@ -39,5 +39,11 @@ namespace NLayer.Web.Services
             UserDto user = users.Where(x=>x.Email == accountDto.Email && x.Password == accountDto.Password).FirstOrDefault();
             return user.Id;
         }
+
+        public async Task<AccountWithUserDto> GetAccountByUserId(string userId)
+        {
+            var accountByUserId = await _httpClient.GetFromJsonAsync<CustomResponseDto<AccountWithUserDto>>("Account/GetAccountByUserId/"+userId);
+            return accountByUserId.Data;
+        }
     }
 }
