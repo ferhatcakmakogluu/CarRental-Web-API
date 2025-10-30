@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: carrental_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: carrentaldb
+      POSTGRES_USER: apiuser
+      POSTGRES_PASSWORD: fc.1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - carrental_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U apiuser -d carrentaldb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: carrental_api
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__PostgresConnection=Host=postgres;Port=5432;Database=carrentaldb;Username=apiuser;Password=fc.1234
+    ports:
+      - "5000:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - carrental_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  carrental_network:
+    driver: bridge
