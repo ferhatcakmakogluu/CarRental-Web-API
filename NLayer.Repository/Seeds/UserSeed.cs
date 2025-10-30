@@ -18,7 +18,7 @@ namespace NLayer.Repository.Seeds
                     Adress =  "X Mahallesi ",
                     Email = "ferhat@gmail.com",
                     Password = "Fe.147852639",
-                    BirthDate = DateTime.Now,
+                    BirthDate = DateTime.UtcNow,
                 }, 
                 new User
                 {
@@ -29,7 +29,7 @@ namespace NLayer.Repository.Seeds
                     Adress = "Y Mahallesi ",
                     Email = "ahmet@gmail.com",
                     Password = "Ah.147852639",
-                    BirthDate = DateTime.Now,
+                    BirthDate = DateTime.UtcNow,
                 },
                 new User
                 {
@@ -40,7 +40,7 @@ namespace NLayer.Repository.Seeds
                     Adress = "Z Mahallesi ",
                     Email = "kerem@gmail.com",
                     Password = "Ke.147852639",
-                    BirthDate = DateTime.Now,
+                    BirthDate = DateTime.UtcNow,
                 },
                 new User
                 {
@@ -51,7 +51,7 @@ namespace NLayer.Repository.Seeds
                     Adress = "C Mahallesi ",
                     Email = "ali@gmail.com",
                     Password = "Al.147852639",
-                    BirthDate = DateTime.Now,
+                    BirthDate = DateTime.UtcNow,
                 },
                 new User
                 {
@@ -62,7 +62,7 @@ namespace NLayer.Repository.Seeds
                     Adress = "AA Mahallesi ",
                     Email = "veli@gmail.com",
                     Password = "Ve.147852639",
-                    BirthDate = DateTime.Now,
+                    BirthDate = DateTime.UtcNow,
                 }
             ); 
         }

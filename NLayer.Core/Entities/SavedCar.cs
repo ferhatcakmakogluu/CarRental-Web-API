@@ -11,7 +11,7 @@ namespace NLayer.Core.Entities
         public int Id { get; set; }
         public int AccountId { get; set; }
         public int CarId { get; set; }
-        public DateTime SavedTime { get; set; }
+        public DateTime SavedTime { get; set; } = DateTime.UtcNow;
         public Car Car { get; set; }
         public Account Account { get; set; }
     }

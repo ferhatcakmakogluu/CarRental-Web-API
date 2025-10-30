@@ -16,7 +16,7 @@ namespace NLayer.Core.Entities
         public string? Photo {  get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime BirthDate { get; set; } = DateTime.UtcNow;
         public List<Car> Cars { get; set; }
     }
 }

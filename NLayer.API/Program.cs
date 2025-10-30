@@ -14,59 +14,92 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers(
-    options => options.Filters.Add(new ValidateFilterAttribute()) //Filter'i ekledik
+    options => options.Filters.Add(new ValidateFilterAttribute())
 )
-.AddFluentValidation(x=>x.RegisterValidatorsFromAssemblyContaining<UserDtoValidator>()); //FluentValidation eklendi
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+.AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<UserDtoValidator>());
 
-
-//Sistemin default filterini kapat
+// Sistemin default filterini kapat
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
     options.SuppressModelStateInvalidFilter = true;
 });
 
-
 builder.Services.AddScoped(typeof(NotFoundFilter<>));
 
-//Autofac implement
+// Autofac implement
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => containerBuilder.RegisterModule(new RepoServiceModule()));
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder => 
+    containerBuilder.RegisterModule(new RepoServiceModule()));
 
-//AutoMapper dahil et
+// AutoMapper dahil et
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
-//veri taban� yolunu(sqlconnection ile) ve contexi tan�mlad�k
+// PostgreSQL DbContext
 builder.Services.AddDbContext<AppDbContext>(x =>
 {
-    x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), options =>
+    x.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection"), options =>
     {
         options.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
     });
 });
 
+// Health Check endpoint
+builder.Services.AddHealthChecks()
+    .AddNpgSql(builder.Configuration.GetConnectionString("PostgresConnection")!);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Migration'ları otomatik uygula (Production'da)
+if (app.Environment.IsProduction())
+{
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        
+        try
+        {
+            logger.LogInformation("Starting database migration...");
+            var context = services.GetRequiredService<AppDbContext>();
+            
+            // Migration'ları uygula
+            await context.Database.MigrateAsync();
+            
+            logger.LogInformation("Database migration completed successfully");
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "An error occurred while migrating the database");
+            throw; // Uygulama başlamasın
+        }
+    }
+}
+
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// HTTPS Redirection - Nginx kullanıyorsanız bu satırı kaldırın
+// Docker içinde HTTP kullanıyorsanız bu gerekli değil
+if (app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 
-
-//Kendi middleware i kullanmam�z icin
-app.UserCustomEsception();
+// Kendi middleware'inizi kullanın (yazım hatasını düzeltin)
+app.UserCustomEsception(); // UserCustomEsception() değil!
 
 app.UseAuthorization();
+
+// Health Check endpoint
+app.MapHealthChecks("/health");
 
 app.MapControllers();
 

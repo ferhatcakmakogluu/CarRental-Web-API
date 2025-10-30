@@ -17,23 +17,23 @@ namespace NLayer.Repository.Seeds
                 new SavedCar
                 {
                     Id = 1,
-                    AccountId = 11,
+                    AccountId = 1,
                     CarId = 4,
-                    SavedTime = DateTime.Now,
+                    SavedTime = DateTime.UtcNow,
                 },
                 new SavedCar
                 {
                     Id = 2,
-                    AccountId = 11,
+                    AccountId = 1,
                     CarId = 5,
-                    SavedTime = DateTime.Now,
+                    SavedTime = DateTime.UtcNow,
                 },
                 new SavedCar
                 {
                     Id = 3,
-                    AccountId = 11,
+                    AccountId = 1,
                     CarId = 6,
-                    SavedTime = DateTime.Now,
+                    SavedTime = DateTime.UtcNow,
                 }
             );
         }

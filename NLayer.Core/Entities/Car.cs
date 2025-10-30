@@ -14,8 +14,8 @@ namespace NLayer.Core.Entities
         public decimal Price { get; set; }  
         public List<string>? Photos { get; set; }
         public string Description { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+        public DateTime? UpdatedDate { get; set; } = DateTime.UtcNow;
         public string Location { get; set; }
         public string State { get; set; }
         public int UserId { get; set; }

@@ -24,7 +24,7 @@ namespace NLayer.Repository.Seeds
                     Location = "Türkiye",
                     State = "İstanbul",
                     Description = "Hızlı bir araba",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow
                 },
                 new Car
                 {
@@ -36,7 +36,7 @@ namespace NLayer.Repository.Seeds
                     Location = "Türkiye",
                     State = "Ankara",
                     Description = "Yol tutuşu harika bir araba",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow
                 },
                 new Car
                 {
@@ -48,7 +48,7 @@ namespace NLayer.Repository.Seeds
                     Location = "Türkiye",
                     State = "İzmir",
                     Description = "Günlük içler için ideal",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow
                 },
                 new Car
                 {
@@ -60,7 +60,7 @@ namespace NLayer.Repository.Seeds
                     Location = "Türkiye",
                     State = "Bursa",
                     Description = "Konfor harika",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow
                 },
                 new Car
                 {
@@ -72,7 +72,7 @@ namespace NLayer.Repository.Seeds
                     Location = "Türkiye",
                     State = "Trabzon",
                     Description = "Yeni nesil tasarım",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow
                 },
                 new Car
                 {
@@ -84,7 +84,7 @@ namespace NLayer.Repository.Seeds
                     Location = "Türkiye",
                     State = "Zonguldak",
                     Description = "Modern, konforlu ve hızlı",
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.UtcNow
                 }
             );
         }
