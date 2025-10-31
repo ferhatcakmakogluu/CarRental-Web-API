@@ -40,4 +40,4 @@ EXPOSE 8081
 ENV ASPNETCORE_ENVIRONMENT=Production
 ENV ASPNETCORE_URLS=http://+:8080
 
-ENTRYPOINT ["dotnet", "YourApiProject.dll"]
+ENTRYPOINT ["dotnet", "NLayer.API.dll"]
