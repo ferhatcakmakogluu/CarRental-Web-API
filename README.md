@@ -5,7 +5,7 @@
 This project is a car rental platform developed using ASP.NET .NET 8.0. It includes an API for managing car rental operations and an MVC frontend that fetches data from the API.
 
 ### Key Features
-- **Car Rental API:** Manages car rental operations and provides data.
+- **Car Rental API:** Manages car rental operations and provides data
 - **MVC Frontend:** Provides a user-friendly interface and fetches data from the API.
 
 ## Technologies Used
