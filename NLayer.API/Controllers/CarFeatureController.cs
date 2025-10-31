@@ -81,5 +81,16 @@ namespace NLayer.API.Controllers
             await _carFeatureService.RemoveAsync(carFeature);
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
+        
+        [ServiceFilter(typeof (NotFoundFilter<CarFeature>))]
+        [HttpDelete("[action]")]
+        public async Task<IActionResult> DeleteMergeCarFeatures(List<int> ids)
+        {
+            var carFeatures = await _carFeatureService.GetAllAsync();
+            carFeatures = carFeatures.Where(x => ids.Contains(x.Id));
+
+            await _carFeatureService.RemoveMergeAsync(carFeatures);
+            return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
+        }
     }
 }
